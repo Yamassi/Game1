@@ -15,4 +15,9 @@ public class AnimateComponent : MonoBehaviour, IAnimate
         float inputMagnitude = Mathf.Clamp01(movementDirection.magnitude);
         _animator.SetFloat("InputMagnitude", inputMagnitude);
     }
+    public void AttackAnimate(bool isAttack)
+    {
+        if (isAttack)
+            _animator.SetTrigger("Attack");
+    }
 }

@@ -16,7 +16,7 @@ public class MoveComponent : MonoBehaviour, IMove
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
-        // d
+
     }
     public void Look(Vector2 movementDirection)
     {

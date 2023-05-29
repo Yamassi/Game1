@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         _move.Look(_input.GetDirection());
+        _animate.AttackAnimate(_input.GetAttack());
     }
     private void FixedUpdate()
     {
