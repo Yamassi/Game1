@@ -483,7 +483,7 @@ GameObject:
   - component: {fileID: 1559809927}
   - component: {fileID: 1559809926}
   - component: {fileID: 1559809925}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -576,6 +576,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 400098646, guid: 40eaa4e4fb97d4e31baf98cd5143f6e6, type: 3}
+      propertyPath: m_Height
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400098646, guid: 40eaa4e4fb97d4e31baf98cd5143f6e6, type: 3}
+      propertyPath: m_Radius
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 400098646, guid: 40eaa4e4fb97d4e31baf98cd5143f6e6, type: 3}
+      propertyPath: m_Center.y
+      value: 0.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 400098646, guid: 40eaa4e4fb97d4e31baf98cd5143f6e6, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4672788684599338576, guid: 40eaa4e4fb97d4e31baf98cd5143f6e6,
         type: 3}
       propertyPath: m_RootOrder
@@ -633,33 +649,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4672788684599338577, guid: 40eaa4e4fb97d4e31baf98cd5143f6e6,
         type: 3}
-      propertyPath: _jumpSpeed
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4672788684599338577, guid: 40eaa4e4fb97d4e31baf98cd5143f6e6,
-        type: 3}
-      propertyPath: _jumpHeight
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4672788684599338577, guid: 40eaa4e4fb97d4e31baf98cd5143f6e6,
-        type: 3}
-      propertyPath: _jumpVelocity
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4672788684599338577, guid: 40eaa4e4fb97d4e31baf98cd5143f6e6,
-        type: 3}
-      propertyPath: _fallMultiplier
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4672788684599338577, guid: 40eaa4e4fb97d4e31baf98cd5143f6e6,
-        type: 3}
-      propertyPath: _lowJumpMultiplier
-      value: 2
+      propertyPath: _characterMovementSpeed
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4672788684599338579, guid: 40eaa4e4fb97d4e31baf98cd5143f6e6,
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6269216115623162488, guid: 40eaa4e4fb97d4e31baf98cd5143f6e6,
+        type: 3}
+      propertyPath: _jumpAmount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6269216115623162488, guid: 40eaa4e4fb97d4e31baf98cd5143f6e6,
+        type: 3}
+      propertyPath: _gravityScale
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6269216115623162488, guid: 40eaa4e4fb97d4e31baf98cd5143f6e6,
+        type: 3}
+      propertyPath: _fallingGravityScale
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40eaa4e4fb97d4e31baf98cd5143f6e6, type: 3}

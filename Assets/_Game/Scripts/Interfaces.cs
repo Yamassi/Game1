@@ -1,16 +1,20 @@
 using UnityEngine;
 public interface IInput
 {
-    Vector3 GetDirection();
+    Vector2 GetDirection();
     bool GetAttack();
     bool GetJump();
 }
 
 public interface IMove
 {
-    void Move(Vector3 direction);
-    void Look(Vector3 direction);
+    void Move(Vector2 direction);
+    void Look(Vector2 direction);
+}
+public interface IJump
+{
     void Jump(bool isJump);
+    void Gravity();
 }
 public interface IHealth
 {
@@ -19,6 +23,6 @@ public interface IHealth
 }
 public interface IAnimate
 {
-    void SetMovementDirection(Vector3 movementDirection);
+    void SetMovementDirection(Vector2 movementDirection);
     void AttackAnimate(bool isAttack);
 }

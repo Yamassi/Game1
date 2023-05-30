@@ -5,11 +5,11 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 public class InputComponent : MonoBehaviour, IInput
 {
-    [SerializeField] private Vector3 _movementDirection;
+    [SerializeField] private Vector2 _movementDirection;
     [SerializeField] private bool _isAttack;
     [SerializeField] private bool _isJump;
     private PlayerInput _playerInput;
-    public Vector3 GetDirection()
+    public Vector2 GetDirection()
     {
 #if UNITY_EDITOR
         DirectionFromKeyboard();
@@ -21,7 +21,7 @@ public class InputComponent : MonoBehaviour, IInput
     }
     private void DirectionFromKeyboard()
     {
-        _movementDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        _movementDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         _movementDirection.Normalize();
     }
     private void DirectionFromTouch()
@@ -77,7 +77,6 @@ public class InputComponent : MonoBehaviour, IInput
         if (Input.GetKey(KeyCode.Space))
         {
             _isJump = true;
-            Debug.Log("Jump2");
         }
         else
         {
