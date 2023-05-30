@@ -10,7 +10,7 @@ public class AnimateComponent : MonoBehaviour, IAnimate
     {
         _animator = GetComponent<Animator>();
     }
-    public void SetMovementDirection(Vector2 movementDirection)
+    public void SetMovementDirection(Vector3 movementDirection)
     {
         float inputMagnitude = Mathf.Clamp01(movementDirection.magnitude);
         _animator.SetFloat("InputMagnitude", inputMagnitude);

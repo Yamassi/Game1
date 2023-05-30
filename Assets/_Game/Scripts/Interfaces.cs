@@ -19,6 +19,6 @@ public interface IHealth
 }
 public interface IAnimate
 {
-    void SetMovementDirection(Vector2 movementDirection);
+    void SetMovementDirection(Vector3 movementDirection);
     void AttackAnimate(bool isAttack);
 }

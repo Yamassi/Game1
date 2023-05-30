@@ -17,7 +17,6 @@ public class PlayerController : MonoBehaviour
     }
     private void Update()
     {
-        Debug.Log(_input.GetDirection());
         _move.Look(_input.GetDirection());
         _animate.AttackAnimate(_input.GetAttack());
     }

@@ -29,7 +29,7 @@ public class MoveComponent : MonoBehaviour, IMove
         if (movementDirection != Vector3.zero)
         {
             _isoDirection = new Vector3(
-    movementDirection.x, movementDirection.y, movementDirection.y).ToIso();
+    movementDirection.x, movementDirection.y, movementDirection.z).ToIso();
 
             var relative = (transform.position + _isoDirection) - transform.position;
             var rotation = Quaternion.LookRotation(relative, Vector3.up);
