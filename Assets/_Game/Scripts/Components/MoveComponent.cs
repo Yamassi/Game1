@@ -9,6 +9,12 @@ public class MoveComponent : MonoBehaviour, IMove
     [SerializeField] private float _characterMovementSpeed;
     [SerializeField] private float _characterRotationSpeed;
     [Space]
+    [Header("Jump:")]
+    [Range(1, 3)]
+    [SerializeField] private float _jumpHeight;
+    [Range(1, 5)]
+    [SerializeField] private float _jumpSpeed;
+    [Space]
     [Header("Information:")]
     [SerializeField] private float _movementSpeed;
     private Rigidbody _rigidbody;
@@ -18,12 +24,12 @@ public class MoveComponent : MonoBehaviour, IMove
         _rigidbody = GetComponent<Rigidbody>();
 
     }
-    public void Look(Vector2 movementDirection)
+    public void Look(Vector3 movementDirection)
     {
-        if (movementDirection != Vector2.zero)
+        if (movementDirection != Vector3.zero)
         {
             _isoDirection = new Vector3(
-    movementDirection.x, 0, movementDirection.y).ToIso();
+    movementDirection.x, movementDirection.y, movementDirection.y).ToIso();
 
             var relative = (transform.position + _isoDirection) - transform.position;
             var rotation = Quaternion.LookRotation(relative, Vector3.up);
@@ -31,10 +37,16 @@ public class MoveComponent : MonoBehaviour, IMove
             transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, _characterRotationSpeed);
         }
     }
-    public void Move(Vector2 movementDirection)
+    public void Move(Vector3 movementDirection)
     {
         _movementSpeed = Mathf.Clamp(movementDirection.magnitude, 0f, 1f);
+
         _rigidbody.velocity = _isoDirection * _movementSpeed * _characterMovementSpeed;
 
+    }
+    public void Jump(bool isJump)
+    {
+        if (isJump)
+            _rigidbody.AddForce(new Vector3(0, _jumpHeight, 0) * _jumpSpeed, ForceMode.Impulse);
     }
 }

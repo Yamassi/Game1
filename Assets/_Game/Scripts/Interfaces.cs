@@ -1,14 +1,16 @@
 using UnityEngine;
 public interface IInput
 {
-    Vector2 GetDirection();
+    Vector3 GetDirection();
     bool GetAttack();
+    bool GetJump();
 }
 
 public interface IMove
 {
-    void Move(Vector2 direction);
-    void Look(Vector2 direction);
+    void Move(Vector3 direction);
+    void Look(Vector3 direction);
+    void Jump(bool isJump);
 }
 public interface IHealth
 {

@@ -17,11 +17,13 @@ public class PlayerController : MonoBehaviour
     }
     private void Update()
     {
+        Debug.Log(_input.GetDirection());
         _move.Look(_input.GetDirection());
         _animate.AttackAnimate(_input.GetAttack());
     }
     private void FixedUpdate()
     {
+        _move.Jump(_input.GetJump());
         _move.Move(_input.GetDirection());
         _animate.SetMovementDirection(_input.GetDirection());
     }
