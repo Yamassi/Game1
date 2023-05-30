@@ -3,7 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class JumpComponent : MonoBehaviour, IJump
 {
-    [SerializeField] private float _jumpAmount = 20f, _gravityScale = 10f, _maxDuration = 0.3f;
+    [SerializeField] private float _jumpAmount = 20f, _gravityScale = 10f, _maxDuration = 0.3f, _fallingGravityScale = 20f;
     [Space]
     [Header("Information:")]
     [SerializeField] private float _currentGravityScale;
@@ -31,13 +31,12 @@ public class JumpComponent : MonoBehaviour, IJump
         {
             Debug.Log("Jumping! ");
             _rigidbody.AddForce(Vector3.up * _jumpAmount, ForceMode.VelocityChange);
-            // _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, _jumpAmount, _rigidbody.velocity.z);
         }
 
-        // if (_rigidbody.velocity.y >= 0)
-        //     _currentGravityScale = _gravityScale;
-        // else if (_rigidbody.velocity.y < 0)
-        //     _currentGravityScale = _fallingGravityScale;
+        if (_rigidbody.velocity.y >= 0)
+            _currentGravityScale = _gravityScale;
+        else if (_rigidbody.velocity.y < 0)
+            _currentGravityScale = _fallingGravityScale;
     }
     public void Gravity()
     {
