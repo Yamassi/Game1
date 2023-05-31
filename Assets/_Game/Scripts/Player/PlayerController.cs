@@ -19,16 +19,15 @@ public class PlayerController : MonoBehaviour
     }
     private void Update()
     {
-
-        _jump.Jump(_input.GetJump());
         _move.Move(_input.GetDirection());
 
         _animate.AttackAnimate(_input.GetAttack());
-        // _animate.JumpAnimate(_input.GetJump());
+        _animate.JumpAnimate(_input.GetJump());
         _animate.SetMovementDirection(_input.GetDirection());
     }
     private void FixedUpdate()
     {
+        _jump.Jump(_input.GetJump());
         _jump.Gravity();
     }
 }

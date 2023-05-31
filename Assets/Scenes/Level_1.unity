@@ -1066,7 +1066,7 @@ PrefabInstance:
     - target: {fileID: 4672788684599338577, guid: 40eaa4e4fb97d4e31baf98cd5143f6e6,
         type: 3}
       propertyPath: _characterMovementSpeed
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4672788684599338579, guid: 40eaa4e4fb97d4e31baf98cd5143f6e6,
         type: 3}
@@ -1076,7 +1076,7 @@ PrefabInstance:
     - target: {fileID: 6269216115623162488, guid: 40eaa4e4fb97d4e31baf98cd5143f6e6,
         type: 3}
       propertyPath: _jumpAmount
-      value: 1.7
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6269216115623162488, guid: 40eaa4e4fb97d4e31baf98cd5143f6e6,
         type: 3}
@@ -1086,12 +1086,12 @@ PrefabInstance:
     - target: {fileID: 6269216115623162488, guid: 40eaa4e4fb97d4e31baf98cd5143f6e6,
         type: 3}
       propertyPath: _gravityScale
-      value: 2.5
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6269216115623162488, guid: 40eaa4e4fb97d4e31baf98cd5143f6e6,
         type: 3}
       propertyPath: _fallingGravityScale
-      value: 12
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40eaa4e4fb97d4e31baf98cd5143f6e6, type: 3}

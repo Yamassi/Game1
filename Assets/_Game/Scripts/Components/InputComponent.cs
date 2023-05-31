@@ -9,6 +9,7 @@ public class InputComponent : MonoBehaviour, IInput
     [SerializeField] private bool _isAttack;
     [SerializeField] private bool _isJump;
     private PlayerInput _playerInput;
+    private float _jumpTime, _jumpMaxDuration = 0.3f;
     public Vector2 GetDirection()
     {
 #if UNITY_EDITOR
@@ -74,24 +75,47 @@ public class InputComponent : MonoBehaviour, IInput
 
     private void JumpFromKeyboard()
     {
+        // if (Input.GetKeyDown(KeyCode.Space))
+        // {
+        //     _isJump = true;
+
+        // }
+        // else
+        // {
+        //     _isJump = false;
+        // }
         if (Input.GetKeyDown(KeyCode.Space))
         {
             _isJump = true;
+            _jumpTime = 0;
         }
-        else
+        else if (Input.GetKeyUp(KeyCode.Space) || _jumpTime > _jumpMaxDuration)
         {
             _isJump = false;
         }
+        if (_isJump)
+            _jumpTime += Time.deltaTime;
     }
     private void JumpFromTouch()
     {
+        // if (_playerInput.actions["Jump"].IsPressed())
+        // {
+        //     _isJump = true;
+        // }
+        // else if (_playerInput.actions["Jump"].WasReleasedThisFrame())
+        // {
+        //     _isJump = false;
+        // }
         if (_playerInput.actions["Jump"].IsPressed())
         {
             _isJump = true;
+            _jumpTime = 0;
         }
-        else if (_playerInput.actions["Jump"].WasReleasedThisFrame())
+        else if (_playerInput.actions["Jump"].WasReleasedThisFrame() || _jumpTime > _jumpMaxDuration)
         {
             _isJump = false;
         }
+        if (_isJump)
+            _jumpTime += Time.deltaTime;
     }
 }
