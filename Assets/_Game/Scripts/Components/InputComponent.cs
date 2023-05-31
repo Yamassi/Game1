@@ -74,7 +74,7 @@ public class InputComponent : MonoBehaviour, IInput
 
     private void JumpFromKeyboard()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             _isJump = true;
         }
@@ -89,7 +89,7 @@ public class InputComponent : MonoBehaviour, IInput
         {
             _isJump = true;
         }
-        if (_playerInput.actions["Jump"].WasReleasedThisFrame())
+        else if (_playerInput.actions["Jump"].WasReleasedThisFrame())
         {
             _isJump = false;
         }

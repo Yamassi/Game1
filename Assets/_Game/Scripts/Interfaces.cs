@@ -9,7 +9,6 @@ public interface IInput
 public interface IMove
 {
     void Move(Vector2 direction);
-    void Look(Vector2 direction);
 }
 public interface IJump
 {
@@ -25,4 +24,5 @@ public interface IAnimate
 {
     void SetMovementDirection(Vector2 movementDirection);
     void AttackAnimate(bool isAttack);
+    void JumpAnimate(bool isJump);
 }

@@ -3,13 +3,14 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class JumpComponent : MonoBehaviour, IJump
 {
-    [SerializeField] private float _jumpAmount = 20f, _gravityScale = 10f, _maxDuration = 0.3f, _fallingGravityScale = 20f;
+    [SerializeField] private float _jumpAmount = 20f, _gravityScale = 10f;
     [Space]
     [Header("Information:")]
     [SerializeField] private float _currentGravityScale;
     [SerializeField] private float _jumpTime = 0;
     private Rigidbody _rigidbody;
     private GroundChecker _groundChecker;
+    private bool _isJumping = false;
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
@@ -18,25 +19,14 @@ public class JumpComponent : MonoBehaviour, IJump
     }
     public void Jump(bool isJump)
     {
-        if (!_groundChecker.GetIsGrounded())
-        {
-            _jumpTime += Time.deltaTime;
-        }
-        else
-        {
-            _jumpTime = 0;
-        }
+        if (_groundChecker.GetIsGrounded())
+            _isJumping = false;
 
-        if (isJump && _jumpTime < _maxDuration)
+        if (isJump && !_isJumping)
         {
-            Debug.Log("Jumping! ");
-            _rigidbody.AddForce(Vector3.up * _jumpAmount, ForceMode.VelocityChange);
+            _rigidbody.AddForce(Vector3.up * _jumpAmount, ForceMode.Impulse);
+            _isJumping = true;
         }
-
-        if (_rigidbody.velocity.y >= 0)
-            _currentGravityScale = _gravityScale;
-        else if (_rigidbody.velocity.y < 0)
-            _currentGravityScale = _fallingGravityScale;
     }
     public void Gravity()
     {
