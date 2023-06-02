@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 400098645}
-  - component: {fileID: 400098646}
   - component: {fileID: 400098647}
+  - component: {fileID: 2096764114}
   m_Layer: 0
   m_Name: GroundChecker
   m_TagString: Untagged
@@ -33,20 +33,6 @@ Transform:
   m_Father: {fileID: 4672788684599338576}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &400098646
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 400098644}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.05
-  m_Height: 0
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.07, z: 0}
 --- !u!114 &400098647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,6 +46,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isGrounded: 0
+--- !u!65 &2096764114
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 400098644}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.41977483, y: 0.5022992, z: 0.3737874}
+  m_Center: {x: -0.050671667, y: 0.2488504, z: -0.048509806}
 --- !u!1 &4501817656262219342
 GameObject:
   m_ObjectHideFlags: 0
@@ -255,8 +254,8 @@ MonoBehaviour:
   _jumpAmount: 10
   _gravityScale: 8
   _fallingGravityScale: 30
+  _coyoteTime: 0.5
   _currentGravityScale: 0
-  _jumpTime: 0
 --- !u!114 &1575165961
 MonoBehaviour:
   m_ObjectHideFlags: 0

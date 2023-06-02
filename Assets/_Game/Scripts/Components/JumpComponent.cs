@@ -3,11 +3,11 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class JumpComponent : MonoBehaviour, IJump
 {
-    [SerializeField] private float _jumpAmount = 20f, _gravityScale = 10f, _fallingGravityScale = 20f;
+    [SerializeField] private float _jumpAmount = 20f, _gravityScale = 10f, _fallingGravityScale = 20f, _coyoteTime = 0.2f;
     [Space]
     [Header("Information:")]
     [SerializeField] private float _currentGravityScale;
-    [SerializeField] private float _jumpTime = 0;
+    private float _coyoteTimeCounter;
     private Rigidbody _rigidbody;
     private GroundChecker _groundChecker;
     private bool _isJumping = false;
@@ -20,12 +20,20 @@ public class JumpComponent : MonoBehaviour, IJump
     public void Jump(bool isJump)
     {
         if (_groundChecker.GetIsGrounded())
-            _isJumping = false;
+        {
+            _coyoteTimeCounter = _coyoteTime;
+            // _isJumping = false;
+        }
+        else
+        {
+            _coyoteTimeCounter -= Time.deltaTime;
+        }
 
-        if (isJump && !_isJumping)
+
+        if (isJump && _coyoteTimeCounter > 0f)
         {
             _rigidbody.AddForce(Vector3.up * _jumpAmount, ForceMode.Impulse);
-            _isJumping = true;
+            // _isJumping = true;
         }
 
         if (_rigidbody.velocity.y >= 0)

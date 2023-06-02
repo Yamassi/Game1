@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class GroundChecker : MonoBehaviour
 {
-    private CapsuleCollider _capsuleCollider;
+    private BoxCollider _boxCollider;
     [SerializeField] private bool _isGrounded;
     private void Awake()
     {
-        _capsuleCollider = GetComponent<CapsuleCollider>();
+        _boxCollider = GetComponent<BoxCollider>();
     }
     private void OnTriggerEnter(Collider other)
     {
