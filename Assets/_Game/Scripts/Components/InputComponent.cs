@@ -10,6 +10,7 @@ public class InputComponent : MonoBehaviour, IInput
     [SerializeField] private bool _isJump;
     private PlayerInput _playerInput;
     private float _jumpTime, _jumpMaxDuration = 0.3f;
+    private float _attackTime = 0.8f, _attackCooldown = 0.8f;
     public Vector2 GetDirection()
     {
 #if UNITY_EDITOR
@@ -42,14 +43,17 @@ public class InputComponent : MonoBehaviour, IInput
     }
     private void AttackFromKeyboard()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && _attackTime >= _attackCooldown)
         {
+            _attackTime = 0;
             _isAttack = true;
         }
-        else
+        else if (_attackTime < _attackCooldown)
         {
             _isAttack = false;
+            _attackTime += Time.deltaTime;
         }
+
     }
     private void AttackFromTouch()
     {
@@ -75,15 +79,6 @@ public class InputComponent : MonoBehaviour, IInput
 
     private void JumpFromKeyboard()
     {
-        // if (Input.GetKeyDown(KeyCode.Space))
-        // {
-        //     _isJump = true;
-
-        // }
-        // else
-        // {
-        //     _isJump = false;
-        // }
         if (Input.GetKeyDown(KeyCode.Space))
         {
             _isJump = true;
@@ -98,14 +93,6 @@ public class InputComponent : MonoBehaviour, IInput
     }
     private void JumpFromTouch()
     {
-        // if (_playerInput.actions["Jump"].IsPressed())
-        // {
-        //     _isJump = true;
-        // }
-        // else if (_playerInput.actions["Jump"].WasReleasedThisFrame())
-        // {
-        //     _isJump = false;
-        // }
         if (_playerInput.actions["Jump"].IsPressed())
         {
             _isJump = true;
