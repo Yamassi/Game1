@@ -7,6 +7,7 @@ public class AnimateComponent : MonoBehaviour, IAnimate
 {
     private Animator _animator;
     private bool _isJumpAnimationPlaying = false;
+    private bool _isAttackFirst = true;
     private void Awake()
     {
         _animator = GetComponent<Animator>();
@@ -22,8 +23,17 @@ public class AnimateComponent : MonoBehaviour, IAnimate
     }
     public void AttackAnimate(bool isAttack)
     {
-        if (isAttack)
+        if (isAttack && _isAttackFirst)
+        {
             _animator.SetTrigger("Attack");
+            _isAttackFirst = false;
+        }
+        else if (isAttack && !_isAttackFirst)
+        {
+            _animator.SetTrigger("Attack2");
+            _isAttackFirst = true;
+        }
+
     }
     public void JumpAnimate(bool isJump)
     {
