@@ -45,8 +45,8 @@ public class InputComponent : MonoBehaviour, IInput
     {
         if (Input.GetMouseButtonDown(0) && _attackTime >= _attackCooldown)
         {
-            _attackTime = 0;
             _isAttack = true;
+            _attackTime = 0;
         }
         else if (_attackTime < _attackCooldown)
         {
@@ -57,13 +57,15 @@ public class InputComponent : MonoBehaviour, IInput
     }
     private void AttackFromTouch()
     {
-        if (_playerInput.actions["Attack"].IsPressed())
+        if (_playerInput.actions["Attack"].IsPressed() && _attackTime >= _attackCooldown)
         {
             _isAttack = true;
+            _attackTime = 0;
         }
-        if (_playerInput.actions["Attack"].WasReleasedThisFrame())
+        if (_attackTime < _attackCooldown) //_playerInput.actions["Attack"].WasReleasedThisFrame() ||
         {
             _isAttack = false;
+            _attackTime += Time.deltaTime;
         }
     }
     public bool GetJump()
