@@ -3,7 +3,42 @@ guid: a90959b69afa34a429d4cee8600fb25f
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Accent.001
+    second: {fileID: 2100000, guid: dcf0b2d2fe2d2450bb3cb1b5943038c4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Accent_Dark.001
+    second: {fileID: 2100000, guid: f2ca3b1dc054447c89aaac3062258a13, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Black.001
+    second: {fileID: 2100000, guid: ca56641798e7448bdb9b99494aff1ea7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Blade.001
+    second: {fileID: 2100000, guid: 916a725761c2e439b90e1f7b1fca9d03, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Blade_Edge.001
+    second: {fileID: 2100000, guid: 96165223cfd0745d792d0b586be80e9b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Main.001
+    second: {fileID: 2100000, guid: 784784ee2e2cd4e63b8c6d8062994ba0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: ce1c7ea10ba05477fb5849c822697dcc, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -16,8 +51,7 @@ ModelImporter:
     optimizeGameObjects: 0
     removeConstantScaleCurves: 1
     motionNodeName: 
-    rigImportErrors: "Invalid Avatar Rig Configuration. Missing or invalid transform:\n\tRequired
-      human bone 'LeftFoot' not found\n"
+    rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
