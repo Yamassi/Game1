@@ -3,6 +3,7 @@ public interface IInput
 {
     Vector2 GetDirection();
     bool GetAttack();
+    bool GetAttackTrigger();
     bool GetJump();
 }
 

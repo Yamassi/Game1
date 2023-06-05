@@ -6,11 +6,11 @@ using UnityEngine.InputSystem;
 public class InputComponent : MonoBehaviour, IInput
 {
     [SerializeField] private Vector2 _movementDirection;
-    [SerializeField] private bool _isAttack;
-    [SerializeField] private bool _isJump;
+    [SerializeField] private bool _isAttackTrigger = false, _isAttack = false;
+    [SerializeField] private bool _isJump = false;
     private PlayerInput _playerInput;
     private float _jumpTime, _jumpMaxDuration = 0.3f;
-    private float _attackTime = 0.8f, _attackCooldown = 0.8f;
+    private float _attackTime = 0f, _attackCooldown = 0.8f;
     public Vector2 GetDirection()
     {
 #if UNITY_EDITOR
@@ -33,38 +33,46 @@ public class InputComponent : MonoBehaviour, IInput
     }
     public bool GetAttack()
     {
+        return _isAttack;
+    }
+    public bool GetAttackTrigger()
+    {
 #if UNITY_EDITOR
         AttackFromKeyboard();
 #endif
 #if UNITY_ANDROID && !UNITY_EDITOR || UNITY_IOS && !UNITY_EDITOR
         AttackFromTouch();
 #endif
-        return _isAttack;
+        return _isAttackTrigger;
     }
     private void AttackFromKeyboard()
     {
-        if (Input.GetMouseButtonDown(0) && _attackTime >= _attackCooldown)
+        if (Input.GetMouseButtonDown(0) && !_isAttack)
         {
             _isAttack = true;
-            _attackTime = 0;
+            _isAttackTrigger = true;
+            _attackTime = _attackCooldown;
         }
-        else if (_attackTime < _attackCooldown)
+        else if (_isAttack && _attackTime > 0)
+        {
+            _isAttackTrigger = false;
+            _attackTime -= Time.deltaTime;
+        }
+        else if (_attackTime <= 0)
         {
             _isAttack = false;
-            _attackTime += Time.deltaTime;
         }
-
     }
     private void AttackFromTouch()
     {
         if (_playerInput.actions["Attack"].IsPressed() && _attackTime >= _attackCooldown)
         {
-            _isAttack = true;
+            _isAttackTrigger = true;
             _attackTime = 0;
         }
         if (_attackTime < _attackCooldown) //_playerInput.actions["Attack"].WasReleasedThisFrame() ||
         {
-            _isAttack = false;
+            _isAttackTrigger = false;
             _attackTime += Time.deltaTime;
         }
     }
