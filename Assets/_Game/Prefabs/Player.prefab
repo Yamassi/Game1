@@ -102,7 +102,6 @@ GameObject:
   - component: {fileID: 4672788684599338576}
   - component: {fileID: 4690529105678316405}
   - component: {fileID: 4672788684599338586}
-  - component: {fileID: 4672788684599338581}
   - component: {fileID: 4672788684599338580}
   - component: {fileID: 4672788684599338583}
   - component: {fileID: 4672788684599338582}
@@ -110,6 +109,7 @@ GameObject:
   - component: {fileID: 6269216115623162488}
   - component: {fileID: 1575165961}
   - component: {fileID: 1025159085}
+  - component: {fileID: 1383451634}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -167,18 +167,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &4672788684599338581
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4672788684599338579}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1f47ff0ad89b49989188955616e9271, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &4672788684599338580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,6 +194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movementDirection: {x: 0, y: 0}
+  _isAttackTrigger: 0
   _isAttack: 0
   _isJump: 0
 --- !u!54 &4672788684599338582
@@ -301,6 +290,18 @@ CapsuleCollider:
   m_Height: 1.39
   m_Direction: 1
   m_Center: {x: 0, y: 0.7, z: 0.07}
+--- !u!114 &1383451634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4672788684599338579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e9478983fcb349d3888be4f8880bf23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4672788684492810387
 PrefabInstance:
   m_ObjectHideFlags: 0

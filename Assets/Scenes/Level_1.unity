@@ -106,7 +106,7 @@ NavMeshSettings:
   m_BuildSettings:
     serializedVersion: 2
     agentTypeID: 0
-    agentRadius: 0.5
+    agentRadius: 0.4
     agentHeight: 2
     agentSlope: 45
     agentClimb: 0.4
@@ -114,7 +114,7 @@ NavMeshSettings:
     maxJumpAcrossDistance: 0
     minRegionArea: 2
     manualCellSize: 0
-    cellSize: 0.16666667
+    cellSize: 0.13333334
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: a7c5c4cdcc50441eb8bcbacf5357af11, type: 2}
 --- !u!1 &143352042
 GameObject:
   m_ObjectHideFlags: 0
@@ -886,7 +886,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &950533410
 Transform:
@@ -1316,6 +1316,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: NPC1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666020845811851, guid: 967b8099d51254701ae58471234bcc80,
+        type: 3}
+      propertyPath: m_Speed
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666020845811851, guid: 967b8099d51254701ae58471234bcc80,
+        type: 3}
+      propertyPath: m_Acceleration
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666020845811851, guid: 967b8099d51254701ae58471234bcc80,
+        type: 3}
+      propertyPath: m_AngularSpeed
+      value: 3600
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 967b8099d51254701ae58471234bcc80, type: 3}

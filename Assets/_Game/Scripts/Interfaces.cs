@@ -27,3 +27,19 @@ public interface IAnimate
     void AttackAnimate(bool isAttack);
     void JumpAnimate(bool isJump);
 }
+public interface ISensor
+{
+    PlayerController GetChaser();
+}
+public interface INavMeshMove
+{
+    void RunAway(Transform chaserPosition);
+    void Chase(Transform target);
+    bool GetIsStopped();
+    bool GetIsWalk();
+    void Walk();
+    void RunToggle(bool isRun);
+    void StopMove();
+    void RotateToTarget(Vector3 target);
+
+}
