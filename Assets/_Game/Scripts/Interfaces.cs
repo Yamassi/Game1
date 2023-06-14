@@ -41,5 +41,13 @@ public interface INavMeshMove
     void RunToggle(bool isRun);
     void StopMove();
     void RotateToTarget(Vector3 target);
-
+}
+public interface IDamageable
+{
+    void TakeDamage(int damage);
+}
+public interface IWeapon
+{
+    void Attack();
+    void GetDamageable();
 }

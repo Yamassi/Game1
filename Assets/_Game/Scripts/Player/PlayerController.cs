@@ -2,13 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IDamageable
 {
+    [SerializeField] private int _maxLife;
     private IHealth _health;
     private IInput _input;
     private IMove _move;
     private IJump _jump;
     private IAnimate _animate;
+    private int _currentLife;
     private void Awake()
     {
         _health = GetComponent<IHealth>();
@@ -16,6 +18,8 @@ public class PlayerController : MonoBehaviour
         _move = GetComponent<IMove>();
         _jump = GetComponent<IJump>();
         _animate = GetComponent<IAnimate>();
+
+        _currentLife = _maxLife;
     }
     private void Update()
     {
@@ -30,5 +34,10 @@ public class PlayerController : MonoBehaviour
     {
         _jump.Jump(_input.GetJump());
         _jump.Gravity();
+    }
+
+    public void TakeDamage(int damage)
+    {
+        _currentLife -= damage;
     }
 }

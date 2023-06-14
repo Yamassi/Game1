@@ -1,8 +1,9 @@
 using UnityEngine;
 
 
-public class NPCController : MonoBehaviour
+public class NPCController : MonoBehaviour, IDamageable
 {
+    [SerializeField] private int _maxLife;
     [SerializeField] private float _attackCoolDownTime;
     private PlayerController _target;
     private INavMeshMove _navMeshMove;
@@ -10,6 +11,7 @@ public class NPCController : MonoBehaviour
     private IAnimate _animate;
     private ISensor _sensor;
     private Vector2 _targetLastPosition;
+    private int _currentLife;
     private float _attackCoolDown;
 
     private void Awake()
@@ -18,6 +20,8 @@ public class NPCController : MonoBehaviour
         _animate = GetComponent<IAnimate>();
         _sensor = GetComponentInChildren<ISensor>();
         _navMeshMove = GetComponent<INavMeshMove>();
+
+        _currentLife = _maxLife;
     }
     private void Update()
     {
@@ -57,5 +61,10 @@ public class NPCController : MonoBehaviour
             }
 
         }
+    }
+
+    public void TakeDamage(int damage)
+    {
+        _currentLife -= damage;
     }
 }
