@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     private IJump _jump;
     private IAnimate _animate;
     private int _currentLife;
+    private bool _isDie = false;
     private void Awake()
     {
         _health = GetComponent<IHealth>();
@@ -23,6 +24,12 @@ public class PlayerController : MonoBehaviour, IDamageable
     }
     private void Update()
     {
+        if (!_isDie)
+            PlayerBehaviour();
+    }
+
+    private void PlayerBehaviour()
+    {
         if (!_input.GetAttack())
             _move.Move(_input.GetDirection());
 
@@ -30,6 +37,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         _animate.JumpAnimate(_input.GetJump());
         _animate.SetMovementDirection(_input.GetDirection());
     }
+
     private void FixedUpdate()
     {
         _jump.Jump(_input.GetJump());
@@ -39,5 +47,10 @@ public class PlayerController : MonoBehaviour, IDamageable
     public void TakeDamage(int damage)
     {
         _currentLife -= damage;
+        if (_currentLife <= 0)
+        {
+            _isDie = true;
+            _animate.DieAnimate();
+        }
     }
 }

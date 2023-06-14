@@ -26,6 +26,7 @@ public interface IAnimate
     void SetMovementDirection(Vector2 movementDirection);
     void AttackAnimate(bool isAttack);
     void JumpAnimate(bool isJump);
+    void DieAnimate();
 }
 public interface ISensor
 {
@@ -45,9 +46,4 @@ public interface INavMeshMove
 public interface IDamageable
 {
     void TakeDamage(int damage);
-}
-public interface IWeapon
-{
-    void Attack();
-    void GetDamageable();
 }

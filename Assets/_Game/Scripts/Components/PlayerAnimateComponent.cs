@@ -18,6 +18,10 @@ public class PlayerAnimateComponent : AnimateComponent, IAnimate
             _isAttackFirst = true;
         }
     }
+    public override void DieAnimate()
+    {
+        _animator.SetTrigger("Die");
+    }
     public override void JumpAnimate(bool isJump)
     {
         if (isJump && !_isJumpAnimationPlaying)

@@ -13,6 +13,7 @@ public class NPCController : MonoBehaviour, IDamageable
     private Vector2 _targetLastPosition;
     private int _currentLife;
     private float _attackCoolDown;
+    private bool _isDie = false;
 
     private void Awake()
     {
@@ -25,7 +26,8 @@ public class NPCController : MonoBehaviour, IDamageable
     }
     private void Update()
     {
-        NPCsBehaviour();
+        if (!_isDie)
+            NPCsBehaviour();
     }
     private void NPCsBehaviour()
     {
@@ -39,7 +41,6 @@ public class NPCController : MonoBehaviour, IDamageable
             _attackCoolDown = 0.6f;
         }
     }
-
     private void Chase()
     {
         float distance = Vector3.Distance(transform.position, _target.transform.position);
@@ -62,9 +63,13 @@ public class NPCController : MonoBehaviour, IDamageable
 
         }
     }
-
     public void TakeDamage(int damage)
     {
         _currentLife -= damage;
+        if (_currentLife <= 0)
+        {
+            _isDie = true;
+            _animate.DieAnimate();
+        }
     }
 }

@@ -4,17 +4,19 @@ using UnityEngine;
 using UniRx;
 using UniRx.Triggers;
 
-public class WeaponComponent : MonoBehaviour, IWeapon
+public class WeaponComponent : MonoBehaviour
 {
+    [SerializeField] private int _damage;
     [SerializeField] private BoxCollider _boxCollider;
     private CompositeDisposable _disposable = new CompositeDisposable();
+
     public void Attack()
     {
         _boxCollider.OnTriggerEnterAsObservable()
         .Where(other => other.GetComponent(typeof(IDamageable)))
         .Subscribe(other =>
         {
-            TakeDamage(other);
+            AddDamage(other);
             _disposable.Clear();
         }).AddTo(_disposable);
     }
@@ -22,17 +24,14 @@ public class WeaponComponent : MonoBehaviour, IWeapon
     {
         _disposable.Clear();
     }
-    private void TakeDamage(Collider other)
+    private void AddDamage(Collider other)
     {
         IDamageable damageable = other.GetComponent(typeof(IDamageable)) as IDamageable;
         if (damageable != null)
         {
+            damageable.TakeDamage(_damage);
             Debug.Log("Hit enemy");
         }
-    }
-    public void GetDamageable()
-    {
-        throw new System.NotImplementedException();
     }
 
 }
