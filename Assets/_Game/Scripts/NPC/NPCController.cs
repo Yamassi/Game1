@@ -3,12 +3,14 @@ using UnityEngine;
 
 public class NPCController : MonoBehaviour
 {
+    [SerializeField] private float _attackCoolDownTime;
     private PlayerController _target;
     private INavMeshMove _navMeshMove;
     private IHealth _health;
     private IAnimate _animate;
     private ISensor _sensor;
     private Vector2 _targetLastPosition;
+    private float _attackCoolDown;
 
     private void Awake()
     {
@@ -28,6 +30,10 @@ public class NPCController : MonoBehaviour
         {
             Chase();
         }
+        else
+        {
+            _attackCoolDown = 0.6f;
+        }
     }
 
     private void Chase()
@@ -39,8 +45,17 @@ public class NPCController : MonoBehaviour
         }
         else if (distance < 1.5)
         {
-            _navMeshMove.RotateToTarget(_target.transform.position);
             _navMeshMove.StopMove();
+            _navMeshMove.RotateToTarget(_target.transform.position);
+
+            _attackCoolDown -= Time.deltaTime;
+
+            if (_attackCoolDown <= 0)
+            {
+                _animate.AttackAnimate(true);
+                _attackCoolDown = _attackCoolDownTime;
+            }
+
         }
     }
 }
