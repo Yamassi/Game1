@@ -5,6 +5,7 @@ public class NPCController : MonoBehaviour, IDamageable
 {
     [SerializeField] private int _maxLife;
     [SerializeField] private float _attackCoolDownTime;
+    [SerializeField] private SphereCollider _sphere;
     private PlayerController _target;
     private INavMeshMove _navMeshMove;
     private IHealth _health;
@@ -70,6 +71,7 @@ public class NPCController : MonoBehaviour, IDamageable
         {
             _isDie = true;
             _animate.DieAnimate();
+            _sphere.enabled = false;
         }
     }
 }
