@@ -54,9 +54,17 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 400098644}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 1
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Size: {x: 0.37266886, y: 0.0783453, z: 0.45095888}
   m_Center: {x: -0.019871593, y: 0.06586175, z: -0.0436524}
 --- !u!1 &1692046706
@@ -100,9 +108,17 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1692046706}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 1
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Size: {x: 0.060901158, y: 0.18671925, z: 1.826509}
   m_Center: {x: -0.004391563, y: 0.15614307, z: -1.1986259}
 --- !u!114 &1692046709
@@ -117,6 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db427baf00c1748ef8ae667154701632, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _damage: 0
   _boxCollider: {fileID: 0}
 --- !u!1 &4501817656262219342
 GameObject:
@@ -192,7 +209,7 @@ Transform:
   - {fileID: 7820066746879853918}
   - {fileID: 400098645}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4690529105678316405
 MonoBehaviour:
@@ -206,7 +223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f43aca12a8a4440d7b6b8f6ea3cbe8b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxLife: 0
+  _maxLife: 50
 --- !u!95 &4672788684599338586
 Animator:
   serializedVersion: 5
@@ -265,10 +282,21 @@ Rigidbody:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4672788684599338579}
-  serializedVersion: 2
+  serializedVersion: 4
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -302,7 +330,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _jumpAmount: 3.5
-  _gravityScale: 10
+  _gravityScale: 9
   _fallingGravityScale: 20
   _coyoteTime: 0.2
   _currentGravityScale: 0
@@ -345,8 +373,17 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4672788684599338579}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
+  serializedVersion: 2
   m_Radius: 0.35
   m_Height: 1.39
   m_Direction: 1
@@ -375,12 +412,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db427baf00c1748ef8ae667154701632, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _damage: 5
   _boxCollider: {fileID: 1692046708}
 --- !u!1001 &4672788684492810387
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 7820066746879853918}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: a90959b69afa34a429d4cee8600fb25f,
@@ -450,6 +489,13 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: aeaf2118fa98641428670209d485523c, type: 2}
     m_RemovedComponents:
     - {fileID: 5866666021909216657, guid: a90959b69afa34a429d4cee8600fb25f, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -3363358361125546942, guid: a90959b69afa34a429d4cee8600fb25f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1692046707}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a90959b69afa34a429d4cee8600fb25f, type: 3}
 --- !u!4 &1264359133577821393 stripped
 Transform:
