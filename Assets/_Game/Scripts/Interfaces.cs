@@ -27,6 +27,7 @@ public interface IAnimate
     void AttackAnimate(bool isAttack);
     void JumpAnimate(bool isJump);
     void DieAnimate();
+    void GotHitAnimate();
 }
 public interface ISensor
 {

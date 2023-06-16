@@ -16,7 +16,10 @@ public class NPCAnimateComponent : AnimateComponent, IAnimate
     {
         _animator.SetTrigger("Die");
     }
-
+    public override void GotHitAnimate()
+    {
+        _animator.SetTrigger("GotHit");
+    }
     public override void JumpAnimate(bool isJump)
     {
 

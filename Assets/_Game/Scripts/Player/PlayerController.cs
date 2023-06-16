@@ -52,5 +52,6 @@ public class PlayerController : MonoBehaviour, IDamageable
             _isDie = true;
             _animate.DieAnimate();
         }
+        _animate.GotHitAnimate();
     }
 }

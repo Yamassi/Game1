@@ -6,6 +6,7 @@ public class NPCController : MonoBehaviour, IDamageable
     [SerializeField] private int _maxLife;
     [SerializeField] private float _attackCoolDownTime;
     [SerializeField] private SphereCollider _sphere;
+    [SerializeField] private ParticleSystem _fx;
     private PlayerController _target;
     private INavMeshMove _navMeshMove;
     private IHealth _health;
@@ -45,11 +46,11 @@ public class NPCController : MonoBehaviour, IDamageable
     private void Chase()
     {
         float distance = Vector3.Distance(transform.position, _target.transform.position);
-        if (distance > 1.5)
+        if (distance > 1.2)
         {
             _navMeshMove.Chase(_target.transform);
         }
-        else if (distance < 1.5)
+        else if (distance < 1.2)
         {
             _navMeshMove.StopMove();
             _navMeshMove.RotateToTarget(_target.transform.position);
@@ -73,5 +74,7 @@ public class NPCController : MonoBehaviour, IDamageable
             _animate.DieAnimate();
             _sphere.enabled = false;
         }
+        _animate.GotHitAnimate();
+        _fx.Emit(1);
     }
 }

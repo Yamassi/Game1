@@ -22,6 +22,10 @@ public class PlayerAnimateComponent : AnimateComponent, IAnimate
     {
         _animator.SetTrigger("Die");
     }
+    public override void GotHitAnimate()
+    {
+        _animator.SetTrigger("GotHit");
+    }
     public override void JumpAnimate(bool isJump)
     {
         if (isJump && !_isJumpAnimationPlaying)

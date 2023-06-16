@@ -129,12 +129,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5417025424770343805}
   m_PrefabAsset: {fileID: 0}
---- !u!135 &78966326 stripped
-SphereCollider:
-  m_CorrespondingSourceObject: {fileID: 565259387879786182, guid: 967b8099d51254701ae58471234bcc80,
-    type: 3}
-  m_PrefabInstance: {fileID: 2502542839651817575}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &143352042
 GameObject:
   m_ObjectHideFlags: 0
@@ -328,7 +322,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   m_LocalRotation: {x: 0.27984816, y: 0.3647052, z: -0.1159169, w: 0.88047624}
-  m_LocalPosition: {x: -3, y: 3, z: -3}
+  m_LocalPosition: {x: -3, y: 3, z: -2.9067845}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -639,7 +633,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 377301855}
   m_LocalRotation: {x: 0.27984816, y: 0.3647052, z: -0.1159169, w: 0.88047624}
-  m_LocalPosition: {x: -3, y: 3, z: -3}
+  m_LocalPosition: {x: -3, y: 3, z: -2.9067845}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1662,25 +1656,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2053881985, guid: 967b8099d51254701ae58471234bcc80, type: 3}
-      propertyPath: _sphere
-      value: 
-      objectReference: {fileID: 78966326}
-    - target: {fileID: 2219945511885418709, guid: 967b8099d51254701ae58471234bcc80,
-        type: 3}
-      propertyPath: m_Radius
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2219945511885418709, guid: 967b8099d51254701ae58471234bcc80,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2219945511885418709, guid: 967b8099d51254701ae58471234bcc80,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2679756166577748631, guid: 967b8099d51254701ae58471234bcc80,
         type: 3}
       propertyPath: m_RootOrder
@@ -1741,11 +1716,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: 2HRobot
       objectReference: {fileID: 0}
-    - target: {fileID: 4589453456867802188, guid: 967b8099d51254701ae58471234bcc80,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1777,7 +1747,7 @@ PrefabInstance:
     - target: {fileID: 4672788684599338576, guid: 40eaa4e4fb97d4e31baf98cd5143f6e6,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.093215525
       objectReference: {fileID: 0}
     - target: {fileID: 4672788684599338576, guid: 40eaa4e4fb97d4e31baf98cd5143f6e6,
         type: 3}
