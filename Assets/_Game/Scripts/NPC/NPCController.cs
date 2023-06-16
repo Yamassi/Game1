@@ -7,6 +7,7 @@ public class NPCController : MonoBehaviour, IDamageable
     [SerializeField] private float _attackCoolDownTime;
     [SerializeField] private SphereCollider _sphere;
     [SerializeField] private ParticleSystem _fx;
+    [SerializeField] private Transform _gfx;
     private PlayerController _target;
     private INavMeshMove _navMeshMove;
     private IHealth _health;
@@ -73,6 +74,9 @@ public class NPCController : MonoBehaviour, IDamageable
             _isDie = true;
             _animate.DieAnimate();
             _sphere.enabled = false;
+
+            _gfx.SetParent(null);
+            Destroy(this.gameObject, 0.3f);
         }
         _animate.GotHitAnimate();
         _fx.Emit(1);
