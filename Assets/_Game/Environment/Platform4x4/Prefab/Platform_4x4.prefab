@@ -16,7 +16,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 9dfd6af8abb7e47598338ebd07832874,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: 5.757929
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9dfd6af8abb7e47598338ebd07832874,
         type: 3}
@@ -82,6 +82,10 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9dfd6af8abb7e47598338ebd07832874,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1263556666815587679}
     - targetCorrespondingSourceObject: {fileID: 8164078558771037576, guid: 9dfd6af8abb7e47598338ebd07832874,
         type: 3}
       insertIndex: -1
@@ -114,3 +118,40 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3.88, y: 3.1218195, z: 3.903637}
   m_Center: {x: 0.015, y: -1.5152419, z: -0.02957654}
+--- !u!1 &8783493155960925918 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 9dfd6af8abb7e47598338ebd07832874,
+    type: 3}
+  m_PrefabInstance: {fileID: 8440965802784265103}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1263556666815587679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8783493155960925918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.06666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: a9a96e87abd4d4011827fa5fde60c6cb, type: 2}
+  m_BuildHeightMesh: 0
