@@ -7,15 +7,15 @@ public class PlayerAnimateComponent : AnimateComponent, IAnimate
 {
     public override void AttackAnimate(bool isAttack)
     {
-        if (isAttack && _isAttackFirst)
+        if (isAttack && _isFirstAttack)
         {
             _animator.SetTrigger("Attack");
-            _isAttackFirst = false;
+            _isFirstAttack = false;
         }
-        else if (isAttack && !_isAttackFirst)
+        else if (isAttack && !_isFirstAttack)
         {
             _animator.SetTrigger("Attack2");
-            _isAttackFirst = true;
+            _isFirstAttack = true;
         }
     }
     public override void DieAnimate()

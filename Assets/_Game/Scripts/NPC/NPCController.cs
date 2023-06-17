@@ -69,6 +69,8 @@ public class NPCController : MonoBehaviour, IDamageable
     public void TakeDamage(int damage)
     {
         _currentLife -= damage;
+        _fx.Emit(1);
+
         if (_currentLife <= 0)
         {
             _isDie = true;
@@ -76,9 +78,9 @@ public class NPCController : MonoBehaviour, IDamageable
             _sphere.enabled = false;
 
             _gfx.SetParent(null);
-            Destroy(this.gameObject, 0.3f);
+            Destroy(this.gameObject, 0.5f);
         }
-        _animate.GotHitAnimate();
-        _fx.Emit(1);
+        if (!_isDie)
+            _animate.GotHitAnimate();
     }
 }

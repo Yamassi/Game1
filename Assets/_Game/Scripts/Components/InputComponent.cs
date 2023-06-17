@@ -10,7 +10,7 @@ public class InputComponent : MonoBehaviour, IInput
     [SerializeField] private bool _isJump = false;
     private PlayerInput _playerInput;
     private float _jumpTime, _jumpMaxDuration = 0.3f;
-    private float _attackTime = 0f, _attackCooldown = 0.8f;
+    private float _attackTime = 0f, _attackCooldown = 0.7f;
     public Vector2 GetDirection()
     {
 #if UNITY_EDITOR
@@ -47,20 +47,26 @@ public class InputComponent : MonoBehaviour, IInput
     }
     private void AttackFromKeyboard()
     {
-        if (Input.GetMouseButtonDown(0) && !_isAttack)
+        if (!_isAttack)
         {
-            _isAttack = true;
-            _isAttackTrigger = true;
-            _attackTime = _attackCooldown;
+            if (Input.GetMouseButtonDown(0))
+            {
+                _isAttack = true;
+                _isAttackTrigger = true;
+                _attackTime = _attackCooldown;
+            }
         }
-        else if (_isAttack && _attackTime > 0)
+        else if (_isAttack)
         {
-            _isAttackTrigger = false;
-            _attackTime -= Time.deltaTime;
-        }
-        else if (_attackTime <= 0)
-        {
-            _isAttack = false;
+            if (_attackTime > 0)
+            {
+                _isAttackTrigger = false;
+                _attackTime -= Time.deltaTime;
+            }
+            else if (_attackTime <= 0)
+            {
+                _isAttack = false;
+            }
         }
     }
     private void AttackFromTouch()

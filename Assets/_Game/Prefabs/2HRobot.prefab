@@ -5435,7 +5435,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxLife: 10
-  _attackCoolDownTime: 1
+  _attackCoolDownTime: 2
   _sphere: {fileID: 565259387879786182}
   _fx: {fileID: 8383785908375307446}
   _gfx: {fileID: 4589453456867802188}
@@ -5498,7 +5498,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 0.55
   m_Center: {x: 0, y: 0.66, z: -0.09}
 --- !u!1 &4337493871607892346
 GameObject:
