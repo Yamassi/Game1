@@ -11,6 +11,10 @@ public class InputComponent : MonoBehaviour, IInput
     private PlayerInput _playerInput;
     private float _jumpTime, _jumpMaxDuration = 0.3f;
     private float _attackTime = 0f, _attackCooldown = 0.7f;
+    private void Awake()
+    {
+        _playerInput = GetComponent<PlayerInput>();
+    }
     public Vector2 GetDirection()
     {
 #if UNITY_EDITOR
@@ -28,7 +32,7 @@ public class InputComponent : MonoBehaviour, IInput
     }
     private void DirectionFromTouch()
     {
-        _movementDirection = _playerInput.actions["Move"].ReadValue<Vector3>();
+        _movementDirection = _playerInput.actions["Move"].ReadValue<Vector2>();
         _movementDirection.Normalize();
     }
     public bool GetAttack()
@@ -71,15 +75,26 @@ public class InputComponent : MonoBehaviour, IInput
     }
     private void AttackFromTouch()
     {
-        if (_playerInput.actions["Attack"].IsPressed() && _attackTime >= _attackCooldown)
+        if (!_isAttack)
         {
-            _isAttackTrigger = true;
-            _attackTime = 0;
+            if (_playerInput.actions["Attack"].IsPressed())
+            {
+                _isAttack = true;
+                _isAttackTrigger = true;
+                _attackTime = _attackCooldown;
+            }
         }
-        if (_attackTime < _attackCooldown) //_playerInput.actions["Attack"].WasReleasedThisFrame() ||
+        else if (_isAttack)
         {
-            _isAttackTrigger = false;
-            _attackTime += Time.deltaTime;
+            if (_attackTime > 0)
+            {
+                _isAttackTrigger = false;
+                _attackTime -= Time.deltaTime;
+            }
+            else if (_attackTime <= 0)
+            {
+                _isAttack = false;
+            }
         }
     }
     public bool GetJump()
