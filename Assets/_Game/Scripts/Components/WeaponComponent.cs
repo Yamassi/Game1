@@ -3,15 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UniRx;
 using UniRx.Triggers;
-
 public class WeaponComponent : MonoBehaviour
 {
-    [SerializeField] private int _damage;
-    [SerializeField] private BoxCollider _attackCollider;
-    [SerializeField] private ParticleSystem _fx;
-    private CompositeDisposable _disposable = new CompositeDisposable();
+    [SerializeField] protected int _damage;
+    [SerializeField] protected BoxCollider _attackCollider;
+    [SerializeField] protected ParticleSystem _fx;
+    protected CompositeDisposable _disposable = new CompositeDisposable();
 
-    public void StartAttack()
+    public virtual void StartAttack()
     {
         _attackCollider.OnTriggerEnterAsObservable()
         .Where(other => other.GetComponent(typeof(IDamageable)))
@@ -29,13 +28,14 @@ public class WeaponComponent : MonoBehaviour
     {
         if (_fx != null)
             _fx.gameObject.SetActive(true);
+        _fx.Play();
     }
     public void EndWeaponEffect()
     {
         if (_fx != null)
             _fx.gameObject.SetActive(false);
     }
-    private void AddDamage(Collider other)
+    protected void AddDamage(Collider other)
     {
         IDamageable damageable = other.GetComponent(typeof(IDamageable)) as IDamageable;
         if (damageable != null)
