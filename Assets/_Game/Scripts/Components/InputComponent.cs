@@ -11,6 +11,7 @@ public class InputComponent : MonoBehaviour, IInput
     private PlayerInput _playerInput;
     private float _jumpTime, _jumpMaxDuration = 0.3f;
     private float _attackTime = 0f, _attackCooldown = 0.7f;
+    private bool _isJumpOver = true;
     private void Awake()
     {
         _playerInput = GetComponent<PlayerInput>();
@@ -110,29 +111,39 @@ public class InputComponent : MonoBehaviour, IInput
 
     private void JumpFromKeyboard()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && !_isJump)
+        if (Input.GetKey(KeyCode.Space) && !_isJump && _isJumpOver)
         {
+            _isJumpOver = false;
             _isJump = true;
             _jumpTime = 0;
         }
-        else if (Input.GetKeyUp(KeyCode.Space) || _jumpTime > _jumpMaxDuration)
+        else if (_jumpTime > _jumpMaxDuration)
         {
             _isJump = false;
         }
+
+        if (Input.GetKeyUp(KeyCode.Space))
+            _isJumpOver = true;
+
         if (_isJump)
             _jumpTime += Time.deltaTime;
     }
     private void JumpFromTouch()
     {
-        if (_playerInput.actions["Jump"].IsPressed() && !_isJump)
+        if (_playerInput.actions["Jump"].IsPressed() && !_isJump && _isJumpOver)
         {
+            _isJumpOver = false;
             _isJump = true;
             _jumpTime = 0;
         }
-        else if (_playerInput.actions["Jump"].WasReleasedThisFrame() || _jumpTime > _jumpMaxDuration)
+        else if (_jumpTime > _jumpMaxDuration)
         {
             _isJump = false;
         }
+
+        if (_playerInput.actions["Jump"].WasReleasedThisFrame())
+            _isJumpOver = true;
+
         if (_isJump)
             _jumpTime += Time.deltaTime;
     }
