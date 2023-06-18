@@ -7,26 +7,28 @@ using UniRx.Triggers;
 public class WeaponComponent : MonoBehaviour
 {
     [SerializeField] private int _damage;
-    [SerializeField] private BoxCollider _boxCollider;
+    [SerializeField] private BoxCollider _attackCollider;
     [SerializeField] private ParticleSystem _fx;
     private CompositeDisposable _disposable = new CompositeDisposable();
 
     public void StartAttack()
     {
-        _boxCollider.OnTriggerEnterAsObservable()
+        _attackCollider.OnTriggerEnterAsObservable()
         .Where(other => other.GetComponent(typeof(IDamageable)))
         .Subscribe(other =>
         {
             AddDamage(other);
-            _disposable.Clear();
+            // _disposable.Clear();
         }).AddTo(_disposable);
-
-        if (_fx != null)
-            _fx.gameObject.SetActive(true);
     }
     public void EndAttack()
     {
         _disposable.Clear();
+    }
+    public void StartWeaponEffect()
+    {
+        if (_fx != null)
+            _fx.gameObject.SetActive(true);
     }
     public void EndWeaponEffect()
     {
