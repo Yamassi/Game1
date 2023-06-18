@@ -5358,13 +5358,13 @@ Transform:
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 7, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4589453456867802188}
   - {fileID: 1011128231}
   - {fileID: 8122213187476904512}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!95 &8345245828129661165
 Animator:
@@ -5440,6 +5440,7 @@ MonoBehaviour:
   _sphere: {fileID: 565259387879786182}
   _fx: {fileID: 8383785908375307446}
   _gfx: {fileID: 4589453456867802188}
+  _eyeLight: {fileID: 2993679517280492833}
 --- !u!114 &7272562756527580055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5740,7 +5741,7 @@ GameObject:
   - component: {fileID: 2993679517280492833}
   - component: {fileID: 7937774910627184792}
   m_Layer: 0
-  m_Name: Point Light
+  m_Name: Eye Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -24,6 +24,10 @@ public class PlayerAnimateComponent : AnimateComponent, IAnimate
     }
     public override void GotHitAnimate()
     {
+        // AnimatorStateInfo stateInfo;
+        // stateInfo = _animator.GetCurrentAnimatorStateInfo(0);
+
+        // if (!stateInfo.IsName("GotHit"))
         _animator.SetTrigger("GotHit");
     }
     public override void JumpAnimate(bool isJump)
