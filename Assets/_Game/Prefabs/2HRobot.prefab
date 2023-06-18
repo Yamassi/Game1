@@ -452,8 +452,8 @@ GameObject:
   - component: {fileID: 2053881985}
   - component: {fileID: 7272562756527580055}
   - component: {fileID: 499503710}
+  - component: {fileID: 1151841039}
   - component: {fileID: 2219945511885418709}
-  - component: {fileID: 5694727626507112849}
   m_Layer: 0
   m_Name: 2HRobot
   m_TagString: Untagged
@@ -579,6 +579,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _displacementDist: 3
+--- !u!114 &1151841039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3349473768890638381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db427baf00c1748ef8ae667154701632, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damage: 3
+  _attackCollider: {fileID: 3538911428063609477}
+  _fx: {fileID: 2104241244016680114}
 --- !u!135 &2219945511885418709
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -600,21 +615,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0.66, z: -0.09}
---- !u!114 &5694727626507112849
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3349473768890638381}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33d7d2a9094844360a8f215e7a958cd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damage: 3
-  _attackCollider: {fileID: 3538911428063609477}
-  _fx: {fileID: 2104241244016680114}
 --- !u!1 &4337493871607892346
 GameObject:
   m_ObjectHideFlags: 0
