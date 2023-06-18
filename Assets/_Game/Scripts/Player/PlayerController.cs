@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour, IDamageable
 {
     [SerializeField] private int _maxLife;
+    [SerializeField] private ParticleSystem _fx;
     private IHealth _health;
     private IInput _input;
     private IMove _move;
@@ -53,5 +54,6 @@ public class PlayerController : MonoBehaviour, IDamageable
             _animate.DieAnimate();
         }
         _animate.GotHitAnimate();
+        _fx.Play();
     }
 }
