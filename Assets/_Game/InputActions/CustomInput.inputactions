@@ -1,5 +1,5 @@
 {
-    "name": "PlayerController",
+    "name": "PlayerInputAsset",
     "maps": [
         {
             "name": "Player",

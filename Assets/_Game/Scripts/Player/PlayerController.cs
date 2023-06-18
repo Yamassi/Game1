@@ -25,8 +25,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     }
     private void Update()
     {
-        if (!_isDie)
-            PlayerBehaviour();
+        PlayerBehaviour();
     }
 
     private void PlayerBehaviour()
@@ -34,9 +33,9 @@ public class PlayerController : MonoBehaviour, IDamageable
         if (!_input.GetAttack())
             _move.Move(_input.GetDirection());
 
-        _animate.AttackAnimate(_input.GetAttackTrigger());
-        _animate.JumpAnimate(_input.GetJump());
         _animate.SetMovementDirection(_input.GetDirection());
+        _animate.JumpAnimate(_input.GetJump());
+        _animate.AttackAnimate(_input.GetAttackTrigger());
     }
 
     private void FixedUpdate()

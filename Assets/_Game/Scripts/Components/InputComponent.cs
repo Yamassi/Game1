@@ -110,7 +110,7 @@ public class InputComponent : MonoBehaviour, IInput
 
     private void JumpFromKeyboard()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && !_isJump)
         {
             _isJump = true;
             _jumpTime = 0;
@@ -124,7 +124,7 @@ public class InputComponent : MonoBehaviour, IInput
     }
     private void JumpFromTouch()
     {
-        if (_playerInput.actions["Jump"].IsPressed())
+        if (_playerInput.actions["Jump"].IsPressed() && !_isJump)
         {
             _isJump = true;
             _jumpTime = 0;
