@@ -11,7 +11,7 @@ public class InputComponent : MonoBehaviour, IInput
     private PlayerInput _playerInput;
     private float _jumpTime, _jumpMaxDuration = 0.3f;
     private float _attackTime = 0f, _attackCooldown = 0.7f;
-    private bool _isJumpOver = true;
+    private bool _isJumpOver = true, _isAttackOver = true;
     private void Awake()
     {
         _playerInput = GetComponent<PlayerInput>();
@@ -54,7 +54,7 @@ public class InputComponent : MonoBehaviour, IInput
     {
         if (!_isAttack)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButton(0))
             {
                 _isAttack = true;
                 _isAttackTrigger = true;
