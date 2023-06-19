@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class HealthComponent : MonoBehaviour, IHealth
 {
-    [SerializeField] private float _maxHealth;
-    [SerializeField] private float _currentHealth;
+    [SerializeField] private int _maxHealth;
+    [SerializeField] private int _currentHealth;
     private void Awake()
     {
         _currentHealth = _maxHealth;
@@ -29,4 +29,7 @@ public class HealthComponent : MonoBehaviour, IHealth
         }
         Handheld.Vibrate();
     }
+    public int GetMaxHealth() => _maxHealth;
+    public int GetCurrentHealth() => _currentHealth;
+
 }

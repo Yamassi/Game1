@@ -14,7 +14,7 @@ public class Game : MonoBehaviour
         EventHolder.OnPlayerTakeDamage += TakeDamage;
         EventHolder.OnPlayerTakeHealth += TakeHealt;
 
-        _lifeIndicator.SetMaxLifes(_player.GetMaxLife());
+        _lifeIndicator.SetMaxLifes(_player.GetComponent<IHealth>().GetMaxHealth());
     }
 
     private void PlayerFall()

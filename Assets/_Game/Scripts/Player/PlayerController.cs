@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour, IDamageable
 {
-    [SerializeField] private int _maxLife;
     [SerializeField] private ParticleSystem _fx;
     private IHealth _health;
     private IInput _input;
@@ -11,7 +10,6 @@ public class PlayerController : MonoBehaviour, IDamageable
     private IAnimate _animate;
     private GroundChecker _groundChecker;
     private Rigidbody _rigidbody;
-    private int _currentLife;
     private bool _isDie = false;
     private void Awake()
     {
@@ -22,8 +20,6 @@ public class PlayerController : MonoBehaviour, IDamageable
         _animate = GetComponent<IAnimate>();
         _rigidbody = GetComponent<Rigidbody>();
         _groundChecker = GetComponentInChildren<GroundChecker>();
-
-        _currentLife = _maxLife;
     }
     private void Update()
     {
@@ -45,10 +41,11 @@ public class PlayerController : MonoBehaviour, IDamageable
     }
     public void TakeDamage(int damage)
     {
-        _currentLife -= damage;
+        _health.TakeDamage(damage);
+
         EventHolder.PlayerTakeDamage(damage);
 
-        if (_currentLife <= 0)
+        if (_health.GetCurrentHealth() <= 0)
         {
             _isDie = true;
             _animate.DieAnimate();
@@ -60,11 +57,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     public void ReturnToGround()
     {
         Vector3 lastGroundedPosition = _groundChecker.GetLastGroundedPosition();
-        Vector3 offset = new Vector3(0, 12, 1);
+        Vector3 offset = new Vector3(0, 9, 0);
         transform.position = lastGroundedPosition + offset;
-    }
-    public int GetMaxLife()
-    {
-        return _maxLife;
     }
 }

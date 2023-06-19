@@ -20,6 +20,8 @@ public interface IHealth
 {
     void AddHealth(int health);
     void TakeDamage(int damage);
+    int GetMaxHealth();
+    int GetCurrentHealth();
 }
 public interface IAnimate
 {

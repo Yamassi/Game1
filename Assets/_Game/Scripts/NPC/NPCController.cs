@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class NPCController : MonoBehaviour, IDamageable
 {
-    [SerializeField] private int _maxLife;
     [SerializeField] private float _attackCoolDownTime;
     [SerializeField] private SphereCollider _sphere;
     [SerializeField] private ParticleSystem _fx;
@@ -16,7 +15,6 @@ public class NPCController : MonoBehaviour, IDamageable
     private ISensor _sensor;
     private WeaponComponent _weapon;
     private Vector2 _targetLastPosition;
-    private int _currentLife;
     private float _attackCoolDown;
     private bool _isDie = false;
 
@@ -27,8 +25,6 @@ public class NPCController : MonoBehaviour, IDamageable
         _sensor = GetComponentInChildren<ISensor>();
         _navMeshMove = GetComponent<INavMeshMove>();
         _weapon = GetComponent<WeaponComponent>();
-
-        _currentLife = _maxLife;
     }
     private void Update()
     {
@@ -71,10 +67,10 @@ public class NPCController : MonoBehaviour, IDamageable
     }
     public void TakeDamage(int damage)
     {
-        _currentLife -= damage;
+        _health.TakeDamage(damage);
         _fx.Emit(1);
 
-        if (_currentLife <= 0)
+        if (_health.GetCurrentHealth() <= 0)
         {
             _isDie = true;
             _animate.DieAnimate();
@@ -83,6 +79,12 @@ public class NPCController : MonoBehaviour, IDamageable
             _weapon.EndAttack();
 
             _gfx.SetParent(null);
+
+            Reward reward = GetComponent<Reward>();
+            if (reward != null)
+                reward.DropItem();
+
+
             Destroy(this.gameObject, 0.5f);
         }
         if (!_isDie)
