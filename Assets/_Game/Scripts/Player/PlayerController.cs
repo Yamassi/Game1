@@ -34,8 +34,8 @@ public class PlayerController : MonoBehaviour, IDamageable
         if (!_input.GetAttack())
             _move.Move(_input.GetDirection());
 
-        _animate.SetMovementDirection(_input.GetDirection());
         _animate.JumpAnimate(_input.GetJump());
+        _animate.SetMovementDirection(_input.GetDirection());
         _animate.AttackAnimate(_input.GetAttackTrigger());
     }
     private void FixedUpdate()

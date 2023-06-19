@@ -577,6 +577,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: R2H-2
       objectReference: {fileID: 0}
+    - target: {fileID: 6592969686007897686, guid: 28e59cc360143403d84acd1ab7272e21,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1958,7 +1963,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1144321640
 Transform:
   m_ObjectHideFlags: 0
@@ -2424,6 +2429,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: R2H
       objectReference: {fileID: 0}
+    - target: {fileID: 6592969686007897686, guid: 967b8099d51254701ae58471234bcc80,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2789,6 +2799,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 400098645, guid: 40eaa4e4fb97d4e31baf98cd5143f6e6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.041
+      objectReference: {fileID: 0}
+    - target: {fileID: 2096764114, guid: 40eaa4e4fb97d4e31baf98cd5143f6e6, type: 3}
+      propertyPath: m_Size.x
+      value: 0.60009754
+      objectReference: {fileID: 0}
+    - target: {fileID: 2096764114, guid: 40eaa4e4fb97d4e31baf98cd5143f6e6, type: 3}
+      propertyPath: m_Size.z
+      value: 0.86805713
+      objectReference: {fileID: 0}
+    - target: {fileID: 2096764114, guid: 40eaa4e4fb97d4e31baf98cd5143f6e6, type: 3}
+      propertyPath: m_Center.x
+      value: 0.042797387
+      objectReference: {fileID: 0}
+    - target: {fileID: 2096764114, guid: 40eaa4e4fb97d4e31baf98cd5143f6e6, type: 3}
+      propertyPath: m_Center.z
+      value: -0.06101203
+      objectReference: {fileID: 0}
+    - target: {fileID: 2096764114, guid: 40eaa4e4fb97d4e31baf98cd5143f6e6, type: 3}
+      propertyPath: m_IncludeLayers.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4672788684599338576, guid: 40eaa4e4fb97d4e31baf98cd5143f6e6,
         type: 3}
       propertyPath: m_RootOrder

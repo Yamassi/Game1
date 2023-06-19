@@ -1,5 +1,6 @@
 using UnityEngine;
 
+
 [RequireComponent(typeof(Rigidbody))]
 public class JumpComponent : MonoBehaviour, IJump
 {
@@ -25,37 +26,27 @@ public class JumpComponent : MonoBehaviour, IJump
             _isJumping = false;
             _isJumpFirstFrame = true;
         }
-        else
+        else if (!_groundChecker.GetIsGrounded())
         {
             _coyoteTimeCounter -= Time.fixedDeltaTime;
             _isJumping = true;
         }
 
-        if (isJumpPressed && _coyoteTimeCounter > 0f && _isJumping)
+        if (isJumpPressed)
         {
-            AddForce();
-        }
-        else if (isJumpPressed && _isJumpFirstFrame)
-        {
-            AddForce();
-            _isJumpFirstFrame = false;
-        }
 
-        // if (_groundChecker.GetIsGrounded())
-        // {
-        //     _coyoteTimeCounter = _coyoteTime;
-        //     _isJumping = false;
-        // }
-        // else
-        // {
-        //     _coyoteTimeCounter -= Time.fixedDeltaTime;
-        //     _isJumping = true;
-        // }
 
-        // if (isJumpPressed && _coyoteTimeCounter > 0f)
-        // {
-        //     AddForce();
-        // }
+            if (_isJumpFirstFrame)
+            {
+                AddForce();
+                _isJumpFirstFrame = false;
+            }
+            else
+            {
+                if (_coyoteTimeCounter > 0f)
+                    AddForce();
+            }
+        }
 
         if (_rigidbody.velocity.y >= 0)
             _currentGravityScale = _gravityScale;

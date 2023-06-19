@@ -11,19 +11,14 @@ public class GroundChecker : MonoBehaviour
     {
         _boxCollider = GetComponent<BoxCollider>();
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Ground"))
-        {
-            _isGrounded = true;
-            _lastGroundedPosition = other.transform.position;
-        }
-
+        _isGrounded = true;
+        _lastGroundedPosition = other.transform.position;
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Ground"))
-            _isGrounded = false;
+        _isGrounded = false;
     }
     public bool GetIsGrounded()
     {
