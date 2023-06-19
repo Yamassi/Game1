@@ -14,6 +14,7 @@ public class NPCController : MonoBehaviour, IDamageable
     private IHealth _health;
     private IAnimate _animate;
     private ISensor _sensor;
+    private WeaponComponent _weapon;
     private Vector2 _targetLastPosition;
     private int _currentLife;
     private float _attackCoolDown;
@@ -25,6 +26,7 @@ public class NPCController : MonoBehaviour, IDamageable
         _animate = GetComponent<IAnimate>();
         _sensor = GetComponentInChildren<ISensor>();
         _navMeshMove = GetComponent<INavMeshMove>();
+        _weapon = GetComponent<WeaponComponent>();
 
         _currentLife = _maxLife;
     }
@@ -78,11 +80,12 @@ public class NPCController : MonoBehaviour, IDamageable
             _animate.DieAnimate();
             _sphere.enabled = false;
             _eyeLight.gameObject.SetActive(false);
+            _weapon.EndAttack();
 
             _gfx.SetParent(null);
             Destroy(this.gameObject, 0.5f);
         }
         if (!_isDie)
-            _animate.GotHitAnimate();
+            _animate.TakeDamageAnimate();
     }
 }

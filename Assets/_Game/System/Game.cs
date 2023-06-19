@@ -1,18 +1,47 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class Game : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private PlayerController _player;
+    [SerializeField] private LifeIndicator _lifeIndicator;
+    [SerializeField] private GameObject _uiInputs;
+
+    private void Awake()
     {
-        
+        EventHolder.OnPlayerFall += PlayerFall;
+        EventHolder.OnPlayerDie += PlayerDie;
+        EventHolder.OnPlayerTakeDamage += TakeDamage;
+        EventHolder.OnPlayerTakeHealth += TakeHealt;
+
+        _lifeIndicator.SetMaxLifes(_player.GetMaxLife());
     }
 
-    // Update is called once per frame
-    void Update()
+    private void PlayerFall()
     {
-        
+        _player.TakeDamage(5);
+        _player.ReturnToGround();
+    }
+
+    private void TakeHealt(int health)
+    {
+        _lifeIndicator.AddLifes(health);
+    }
+
+    private void TakeDamage(int damage)
+    {
+        _lifeIndicator.RemoveLifes(damage);
+    }
+
+    private void PlayerDie()
+    {
+        _uiInputs.SetActive(false);
+    }
+
+    private void OnDisable()
+    {
+        EventHolder.OnPlayerDie -= PlayerDie;
+        EventHolder.OnPlayerTakeDamage -= TakeDamage;
+        EventHolder.OnPlayerTakeHealth -= TakeHealt;
     }
 }

@@ -19,6 +19,10 @@ public class WeaponComponent : MonoBehaviour
             AddDamage(other);
         }).AddTo(_disposable);
     }
+    private void OnDisable()
+    {
+        _disposable.Clear();
+    }
     public void EndAttack()
     {
         _disposable.Clear();

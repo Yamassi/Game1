@@ -22,7 +22,7 @@ public class PlayerAnimateComponent : AnimateComponent, IAnimate
     {
         _animator.SetTrigger("Die");
     }
-    public override void GotHitAnimate()
+    public override void TakeDamageAnimate()
     {
         // AnimatorStateInfo stateInfo;
         // stateInfo = _animator.GetCurrentAnimatorStateInfo(0);

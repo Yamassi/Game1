@@ -24,5 +24,5 @@ public abstract class AnimateComponent : MonoBehaviour, IAnimate
     public abstract void AttackAnimate(bool isAttack);
     public abstract void JumpAnimate(bool isJump);
     public abstract void DieAnimate();
-    public abstract void GotHitAnimate();
+    public abstract void TakeDamageAnimate();
 }

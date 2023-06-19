@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -15,6 +13,7 @@ public class LifeIndicator : MonoBehaviour
     public void SetMaxLifes(int value)
     {
         _slider.maxValue = value;
+        _slider.value = value;
     }
     public void RemoveLifes(int value)
     {

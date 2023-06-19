@@ -16,7 +16,7 @@ public class NPCAnimateComponent : AnimateComponent, IAnimate
     {
         _animator.SetTrigger("Die");
     }
-    public override void GotHitAnimate()
+    public override void TakeDamageAnimate()
     {
         _animator.SetTrigger("GotHit");
     }
