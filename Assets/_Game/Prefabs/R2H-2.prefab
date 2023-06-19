@@ -282,11 +282,11 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c443de5daf41d79ec411f0fa1359f, type: 2}
-  - {fileID: 2100000, guid: 92e867c38cce847e98a81f5656f6ed67, type: 2}
-  - {fileID: 2100000, guid: 6b1ae1e4b41c54f64a65436a8231f84b, type: 2}
-  - {fileID: 2100000, guid: 02d8450f5cbfa42538883bf445e8092b, type: 2}
-  - {fileID: 2100000, guid: c15ddee4735994137bf1144a9b80eff0, type: 2}
+  - {fileID: 2100000, guid: aec2716c3dfc04344b012ea64091c11f, type: 2}
+  - {fileID: 2100000, guid: 31f008470282d41cb8ba0c2fb7433de4, type: 2}
+  - {fileID: 2100000, guid: 5b79cf96c5a9040f8882aeb556c6001a, type: 2}
+  - {fileID: 2100000, guid: aec2716c3dfc04344b012ea64091c11f, type: 2}
+  - {fileID: 2100000, guid: ae262a25ac8fa4d109b4ae1dc852eaf7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -455,7 +455,7 @@ GameObject:
   - component: {fileID: 1151841039}
   - component: {fileID: 2219945511885418709}
   m_Layer: 0
-  m_Name: 2HRobot
+  m_Name: R2H-2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -477,7 +477,7 @@ Transform:
   - {fileID: 1011128231}
   - {fileID: 8122213187476904512}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!95 &8345245828129661165
 Animator:
@@ -548,8 +548,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9278ee7e50a0461a9aa6063b1b3e06c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxLife: 10
-  _attackCoolDownTime: 2
+  _maxLife: 15
+  _attackCoolDownTime: 1.5
   _sphere: {fileID: 565259387879786182}
   _fx: {fileID: 8383785908375307446}
   _gfx: {fileID: 4589453456867802188}
@@ -591,7 +591,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db427baf00c1748ef8ae667154701632, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 3
+  _damage: 4
   _attackCollider: {fileID: 3538911428063609477}
   _fx: {fileID: 2104241244016680114}
 --- !u!135 &2219945511885418709
@@ -701,9 +701,9 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: cb9baa308d11143219054b12d683854c, type: 2}
-  - {fileID: 2100000, guid: 9e057021f45984143b9557799368beca, type: 2}
-  - {fileID: 2100000, guid: 1e792e7864c8f4b54a43adef319faef6, type: 2}
+  - {fileID: 2100000, guid: 435fa5014800945b69dbf0dceac6bd1f, type: 2}
+  - {fileID: 2100000, guid: be23f74a9334a4670a1e36f10f585ed1, type: 2}
+  - {fileID: 2100000, guid: 001449858afe1402197c240f4d1da457, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2176,7 +2176,7 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0.9921569, g: 0.18039216, b: 0.16470589, a: 1}
+        key0: {r: 0.16470586, g: 0.48279372, b: 0.99215686, a: 1}
         key1: {r: 0.9058824, g: 0.6509804, b: 0.007843138, a: 0}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
@@ -5791,7 +5791,7 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.30980393, g: 0.73333335, b: 0.92549026, a: 1}
   m_Intensity: 0.3
   m_Range: 1
   m_SpotAngle: 30
