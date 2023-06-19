@@ -6,12 +6,12 @@ public class GroundChecker : MonoBehaviour
 {
     [SerializeField] private bool _isGrounded;
     private BoxCollider _boxCollider;
-    private Vector3 _lastGroundedPosition;
+    [SerializeField] private Vector3 _lastGroundedPosition;
     private void Awake()
     {
         _boxCollider = GetComponent<BoxCollider>();
     }
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         _isGrounded = true;
         _lastGroundedPosition = other.transform.position;
