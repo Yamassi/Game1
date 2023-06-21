@@ -84,6 +84,7 @@ public class NPCController : MonoBehaviour, IDamageable
             if (reward != null)
                 reward.DropItem();
 
+            _weapon.DisableWeapon();
 
             Destroy(this.gameObject, 0.5f);
         }

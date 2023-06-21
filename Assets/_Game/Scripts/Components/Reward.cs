@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 public class Reward : MonoBehaviour
 {
@@ -10,4 +8,6 @@ public class Reward : MonoBehaviour
         if (_item != null)
             Instantiate(_item, transform.position + offset, Quaternion.identity);
     }
+    public void SetItem(Item item) => _item = item;
+
 }

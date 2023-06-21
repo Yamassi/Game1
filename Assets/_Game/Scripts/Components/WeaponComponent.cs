@@ -47,5 +47,8 @@ public class WeaponComponent : MonoBehaviour
             Debug.Log("Hit enemy");
         }
     }
-
+    public void DisableWeapon()
+    {
+        _attackCollider.gameObject.SetActive(false);
+    }
 }
