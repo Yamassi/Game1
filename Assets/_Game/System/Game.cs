@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class Game : MonoBehaviour
@@ -6,6 +7,7 @@ public class Game : MonoBehaviour
     [SerializeField] private PlayerController _player;
     [SerializeField] private LifeIndicator _lifeIndicator;
     [SerializeField] private GameObject _uiInputs;
+    [SerializeField] private SpawnInitializer _spawnInitializer;
 
     private void Awake()
     {
@@ -15,6 +17,12 @@ public class Game : MonoBehaviour
         EventHolder.OnPlayerTakeHealth += TakeHealt;
 
         _lifeIndicator.SetMaxLifes(_player.GetComponent<IHealth>().GetMaxHealth());
+    }
+    IEnumerator Start()
+    {
+        yield return new WaitForSeconds(0.5f);
+        _spawnInitializer.StartWave(0);
+
     }
 
     private void PlayerFall()

@@ -9,7 +9,9 @@ public static class EventHolder
 
     public static Action<int> OnPlayerTakeDamage;
     public static void PlayerTakeDamage(int damage) => OnPlayerTakeDamage?.Invoke(damage);
-
     public static Action<int> OnPlayerTakeHealth;
     public static void PlayerTakeHealth(int healt) => OnPlayerTakeHealth?.Invoke(healt);
+
+    public static Action OnAssetsLoad;
+    public static void AssetsLoad() => OnAssetsLoad?.Invoke();
 }
