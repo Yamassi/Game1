@@ -33,12 +33,15 @@ public class SpawnInitializer : MonoBehaviour
         if (_assetsCount == _factories.Length)
         {
             StartWave();
+            IsDone = true;
         }
     }
     private void InitSpawnPoints()
     {
         foreach (var spawnWave in _spawnWaves)
         {
+            spawnWave.Init();
+
             foreach (var spawnPoint in spawnWave.SpawnPoints)
             {
                 if (spawnPoint.Enemy == NPC.R2H || spawnPoint.Enemy == NPC.R2Hi)
@@ -74,7 +77,6 @@ public class SpawnInitializer : MonoBehaviour
     }
     private void StartWave()
     {
-
         if (_currentWave < _spawnWaves.Length)
         {
             foreach (var spawnPoint in _spawnWaves[_currentWave].SpawnPoints)
@@ -90,7 +92,6 @@ public class SpawnInitializer : MonoBehaviour
                 Progress = (float)_count / (float)_spawnWaves[_currentWave].SpawnPoints.Length;
             }
             _currentWave++;
-            IsDone = true;
         }
     }
 
