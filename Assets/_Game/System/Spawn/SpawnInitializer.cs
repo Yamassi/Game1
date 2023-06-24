@@ -10,27 +10,30 @@ public class SpawnInitializer : MonoBehaviour
     public SpawnInitializer Instance;
     public float Progress;
     public bool IsDone;
-    private int _currentWave;
-    private int _count;
-    private int _assetsCount;
-    private void Awake()
+    private int _assetsCount, _currentWave, _count, _aliveNPCcount;
+    public void Init()
     {
         Instance = this;
+        EventHolder.OnAssetsLoad += AssetLoad;
+        EventHolder.OnNPCDie += NPCDie;
+
         GetAssets();
         InitSpawnPoints();
     }
-    // private void Start()
-    // {
-    //     EventHolder.OnAssetsLoad += StartFirstWave;
-    // }
-    // private void OnDisable()
-    // {
-    //     EventHolder.OnAssetsLoad -= StartFirstWave;
-    // }
-    // private void StartFirstWave()
-    // {
-    //     StartWave(0);
-    // }
+    private void OnDisable()
+    {
+        EventHolder.OnAssetsLoad -= AssetLoad;
+        EventHolder.OnNPCDie -= NPCDie;
+    }
+    private void AssetLoad()
+    {
+        _assetsCount++;
+
+        if (_assetsCount == _factories.Length)
+        {
+            StartWave();
+        }
+    }
     private void InitSpawnPoints()
     {
         foreach (var spawnWave in _spawnWaves)
@@ -54,17 +57,29 @@ public class SpawnInitializer : MonoBehaviour
         {
             factory.InitFactory(_NPCParent);
         }
-        EventHolder.AssetsLoad();
     }
-    public void StartWave(int waveNumber)
+    private void NPCDie()
     {
-        foreach (var spawnPoint in _spawnWaves[waveNumber].SpawnPoints)
+        _aliveNPCcount--;
+        if (_aliveNPCcount <= 0)
         {
-            spawnPoint.Factory.CreateUnit(spawnPoint.transform);
-            _count++;
-            Progress = (float)_count / (float)_spawnWaves[waveNumber].SpawnPoints.Length;
+            StartWave();
         }
-        _currentWave++;
-        IsDone = true;
     }
+    private void StartWave()
+    {
+        if (_currentWave < _spawnWaves.Length)
+        {
+            foreach (var spawnPoint in _spawnWaves[_currentWave].SpawnPoints)
+            {
+                spawnPoint.Factory.CreateUnit(spawnPoint.transform);
+                _aliveNPCcount++;
+                _count++;
+                Progress = (float)_count / (float)_spawnWaves[_currentWave].SpawnPoints.Length;
+            }
+            _currentWave++;
+            IsDone = true;
+        }
+    }
+
 }

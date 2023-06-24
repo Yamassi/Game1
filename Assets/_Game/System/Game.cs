@@ -11,6 +11,8 @@ public class Game : MonoBehaviour
 
     private void Awake()
     {
+        _spawnInitializer.Init();
+
         EventHolder.OnPlayerFall += PlayerFall;
         EventHolder.OnPlayerDie += PlayerDie;
         EventHolder.OnPlayerTakeDamage += TakeDamage;
@@ -18,13 +20,6 @@ public class Game : MonoBehaviour
 
         _lifeIndicator.SetMaxLifes(_player.GetComponent<IHealth>().GetMaxHealth());
     }
-    IEnumerator Start()
-    {
-        yield return new WaitForSeconds(0.5f);
-        _spawnInitializer.StartWave(0);
-
-    }
-
     private void PlayerFall()
     {
         _player.TakeDamage(5);

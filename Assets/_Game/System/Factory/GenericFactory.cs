@@ -31,6 +31,7 @@ public abstract class GenericFactory : MonoBehaviour
     private async void GetAssets()
     {
         _prefab = await GetAsset(_assetReference);
+        EventHolder.AssetsLoad();
     }
     private async Task<GameObject> GetAsset(AssetReference asset)
     {

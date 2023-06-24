@@ -72,23 +72,30 @@ public class NPCController : MonoBehaviour, IDamageable
 
         if (_health.GetCurrentHealth() <= 0)
         {
-            _isDie = true;
-            _animate.DieAnimate();
-            _sphere.enabled = false;
-            _eyeLight.gameObject.SetActive(false);
-            _weapon.EndAttack();
-
-            _gfx.SetParent(null);
-
-            Reward reward = GetComponent<Reward>();
-            if (reward != null)
-                reward.DropItem();
-
-            _weapon.DisableWeapon();
-
-            Destroy(this.gameObject, 0.5f);
+            Die();
         }
         if (!_isDie)
             _animate.TakeDamageAnimate();
+    }
+
+    private void Die()
+    {
+        _isDie = true;
+        _animate.DieAnimate();
+        _sphere.enabled = false;
+        _eyeLight.gameObject.SetActive(false);
+        _weapon.EndAttack();
+
+        _gfx.SetParent(null);
+
+        Reward reward = GetComponent<Reward>();
+        if (reward != null)
+            reward.DropItem();
+
+        _weapon.DisableWeapon();
+
+        EventHolder.NPCDie();
+
+        Destroy(this.gameObject, 0.5f);
     }
 }
