@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -63,16 +64,27 @@ public class SpawnInitializer : MonoBehaviour
         _aliveNPCcount--;
         if (_aliveNPCcount <= 0)
         {
-            StartWave();
+            StartCoroutine(StartNextWaves());
         }
+    }
+    private IEnumerator StartNextWaves()
+    {
+        yield return new WaitForSeconds(1f);
+        StartWave();
     }
     private void StartWave()
     {
+
         if (_currentWave < _spawnWaves.Length)
         {
             foreach (var spawnPoint in _spawnWaves[_currentWave].SpawnPoints)
             {
-                spawnPoint.Factory.CreateUnit(spawnPoint.transform);
+                GameObject npc = spawnPoint.Factory.CreateUnit(spawnPoint.transform);
+                if (spawnPoint.Item != null)
+                {
+                    Reward reward = npc.GetComponent<Reward>();
+                    reward.SetItem(spawnPoint.Item);
+                }
                 _aliveNPCcount++;
                 _count++;
                 Progress = (float)_count / (float)_spawnWaves[_currentWave].SpawnPoints.Length;
