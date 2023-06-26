@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class NPCController : MonoBehaviour, IDamageable
 {
-    [SerializeField] private float _attackCoolDownTime;
+    [SerializeField] private float _attackCoolDownTime, _attackDelay;
     [SerializeField] private SphereCollider _sphere;
     [SerializeField] private ParticleSystem _fx;
     [SerializeField] private Transform _gfx;
@@ -15,7 +15,6 @@ public class NPCController : MonoBehaviour, IDamageable
     private ISensor _sensor;
     private WeaponComponent _weapon;
     private Vector2 _targetLastPosition;
-    private float _attackCoolDown;
     private bool _isDie = false;
 
     private void Awake()
@@ -40,7 +39,7 @@ public class NPCController : MonoBehaviour, IDamageable
         }
         else
         {
-            _attackCoolDown = 0.6f;
+            _attackDelay = 0.6f;
         }
     }
     private void Chase()
@@ -55,12 +54,12 @@ public class NPCController : MonoBehaviour, IDamageable
             _navMeshMove.StopMove();
             _navMeshMove.RotateToTarget(_target.transform.position);
 
-            _attackCoolDown -= Time.deltaTime;
+            _attackDelay -= Time.deltaTime;
 
-            if (_attackCoolDown <= 0)
+            if (_attackDelay <= 0)
             {
                 _animate.AttackAnimate(true);
-                _attackCoolDown = _attackCoolDownTime;
+                _attackDelay = _attackCoolDownTime;
             }
 
         }
