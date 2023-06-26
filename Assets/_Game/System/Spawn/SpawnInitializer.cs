@@ -8,10 +8,10 @@ public class SpawnInitializer : MonoBehaviour
     [SerializeField] private GenericFactory[] _factories;
     [SerializeField] private SpawnWave[] _spawnWaves;
     [SerializeField] private Transform _NPCParent;
-    public SpawnInitializer Instance;
+    public static SpawnInitializer Instance;
     public float Progress;
     public bool IsDone;
-    private int _assetsCount, _currentWave, _count, _aliveNPCcount;
+    private int _assetsCount, _currentWave, _count, _aliveNPCcount, _assetsCountForLoad;
     public void Init()
     {
         Instance = this;
@@ -21,6 +21,7 @@ public class SpawnInitializer : MonoBehaviour
         GetAssets();
         InitSpawnPoints();
     }
+
     private void OnDisable()
     {
         EventHolder.OnAssetsLoad -= AssetLoad;
@@ -32,8 +33,7 @@ public class SpawnInitializer : MonoBehaviour
 
         if (_assetsCount == _factories.Length)
         {
-            StartWave();
-            IsDone = true;
+            StartCoroutine(StartWave());
         }
     }
     private void InitSpawnPoints()
@@ -57,9 +57,9 @@ public class SpawnInitializer : MonoBehaviour
     }
     private void GetAssets()
     {
-        foreach (var factory in _factories)
+        for (int i = 0; i < _factories.Length; i++)
         {
-            factory.InitFactory(_NPCParent);
+            _factories[i].InitFactory(_NPCParent);
         }
     }
     private void NPCDie()
@@ -73,9 +73,9 @@ public class SpawnInitializer : MonoBehaviour
     private IEnumerator StartNextWaves()
     {
         yield return new WaitForSeconds(1f);
-        StartWave();
+        StartCoroutine(StartWave());
     }
-    private void StartWave()
+    private IEnumerator StartWave()
     {
         if (_currentWave < _spawnWaves.Length)
         {
@@ -88,11 +88,16 @@ public class SpawnInitializer : MonoBehaviour
                     reward.SetItem(spawnPoint.Item);
                 }
                 _aliveNPCcount++;
-                _count++;
+
+                yield return new WaitForEndOfFrame();
+
                 Progress = (float)_count / (float)_spawnWaves[_currentWave].SpawnPoints.Length;
+
+                _count++;
             }
             _currentWave++;
         }
+        yield return new WaitForSeconds(0.5f);
+        IsDone = true;
     }
-
 }

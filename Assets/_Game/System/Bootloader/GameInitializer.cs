@@ -8,14 +8,13 @@ public class GameInitializer : MonoBehaviour
     [SerializeField] private LoadingScreen _loadingScreen;
     public static GameInitializer Instance;
     private List<AsyncOperation> _scenesLoading = new List<AsyncOperation>();
-    private float _loadingSceneProgress, _loadingSpawnProgress;
+    private float _totalSceneProgress, _spawnProgress;
     private void Awake()
     {
         Instance = this;
 
         StartLoading();
     }
-
     private void StartLoading()
     {
         _loadingScreen.gameObject.SetActive(true);
@@ -24,29 +23,53 @@ public class GameInitializer : MonoBehaviour
         _scenesLoading.Add(SceneManager.LoadSceneAsync(1, LoadSceneMode.Additive));
 
         StartCoroutine(GetSceneLoadProgress());
+        StartCoroutine(GetSpawnProgress());
     }
-
     private IEnumerator GetSceneLoadProgress()
     {
+        yield return new WaitForEndOfFrame();
+
         for (int i = 0; i < _scenesLoading.Count; i++)
         {
             while (!_scenesLoading[i].isDone)
             {
+                _totalSceneProgress = 0;
+
                 foreach (AsyncOperation operation in _scenesLoading)
                 {
-                    _loadingSceneProgress += operation.progress;
+                    _totalSceneProgress += operation.progress;
                 }
-                _loadingSceneProgress = (_loadingSceneProgress / _scenesLoading.Count) * 100f;
-
-                _loadingScreen.SetLoadingBar(Mathf.RoundToInt(_loadingSceneProgress));
-
+                _totalSceneProgress = (_totalSceneProgress / _scenesLoading.Count) * 100f;
                 yield return null;
             }
         }
-        _loadingScreen.gameObject.SetActive(false);
+        yield return null;
     }
     private IEnumerator GetSpawnProgress()
     {
+        float totalProgress = 0;
+
+        for (int i = 0; i < _scenesLoading.Count; i++)
+        {
+            while (SpawnInitializer.Instance == null || !SpawnInitializer.Instance.IsDone)
+            {
+                if (SpawnInitializer.Instance == null)
+                {
+                    _spawnProgress = 0;
+                }
+                else
+                {
+                    _spawnProgress = Mathf.Round(SpawnInitializer.Instance.Progress * 100f);
+                }
+
+                totalProgress = Mathf.Round((_totalSceneProgress + _spawnProgress) / 2f);
+
+                _loadingScreen.SetLoadingBar(Mathf.RoundToInt(totalProgress));
+                yield return null;
+            }
+        }
+
+        _loadingScreen.gameObject.SetActive(false);
         yield return null;
     }
 }

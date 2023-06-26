@@ -6,8 +6,11 @@ using UnityEngine.UI;
 public class LoadingScreen : MonoBehaviour
 {
     [SerializeField] private Slider _loadingBar;
+    public static LoadingScreen Instance;
     private void Awake()
     {
+        Instance = this;
+
         _loadingBar.maxValue = 100;
         _loadingBar.value = 0;
     }
