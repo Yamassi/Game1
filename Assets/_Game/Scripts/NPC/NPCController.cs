@@ -4,10 +4,10 @@ using UnityEngine;
 public class NPCController : MonoBehaviour, IDamageable
 {
     [SerializeField] private float _attackCoolDownTime, _attackDelay;
-    [SerializeField] private SphereCollider _sphere;
     [SerializeField] private ParticleSystem _fx;
     [SerializeField] private Transform _gfx;
     [SerializeField] private Light _eyeLight;
+    private CapsuleCollider _capsule;
     private PlayerController _target;
     private INavMeshMove _navMeshMove;
     private IHealth _health;
@@ -24,6 +24,7 @@ public class NPCController : MonoBehaviour, IDamageable
         _sensor = GetComponentInChildren<ISensor>();
         _navMeshMove = GetComponent<INavMeshMove>();
         _weapon = GetComponent<WeaponComponent>();
+        _capsule = GetComponent<CapsuleCollider>();
     }
     private void Update()
     {
@@ -81,7 +82,7 @@ public class NPCController : MonoBehaviour, IDamageable
     {
         _isDie = true;
         _animate.DieAnimate();
-        _sphere.enabled = false;
+        _capsule.enabled = false;
         _eyeLight.gameObject.SetActive(false);
         _weapon.EndAttack();
 
