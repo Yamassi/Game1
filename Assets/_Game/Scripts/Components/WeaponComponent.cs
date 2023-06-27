@@ -12,11 +12,13 @@ public class WeaponComponent : MonoBehaviour
 
     public virtual void StartAttack()
     {
+        _disposable.Clear();
         _attackCollider.OnTriggerEnterAsObservable()
         .Where(other => other.GetComponent(typeof(IDamageable)))
         .Subscribe(other =>
         {
             AddDamage(other);
+
         }).AddTo(_disposable);
     }
     private void OnDisable()
