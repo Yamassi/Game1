@@ -18,7 +18,6 @@ public class WeaponComponent : MonoBehaviour
         .Subscribe(other =>
         {
             AddDamage(other);
-
         }).AddTo(_disposable);
     }
     private void OnDisable()

@@ -146,10 +146,52 @@ PrefabInstance:
       propertyPath: m_text
       value: Loading...
       objectReference: {fileID: 0}
+    - target: {fileID: 2596447249149146950, guid: b93555d5539b6455d89824053ed822f8,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 26084bfbaca4d4923aa1cfb864fcfc15,
+        type: 2}
+    - target: {fileID: 2596447249149146950, guid: b93555d5539b6455d89824053ed822f8,
+        type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2596447249149146950, guid: b93555d5539b6455d89824053ed822f8,
+        type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2596447249149146950, guid: b93555d5539b6455d89824053ed822f8,
+        type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2596447249149146950, guid: b93555d5539b6455d89824053ed822f8,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 915898340704213902, guid: 26084bfbaca4d4923aa1cfb864fcfc15,
+        type: 2}
+    - target: {fileID: 2596447249149146950, guid: b93555d5539b6455d89824053ed822f8,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 2596447249149146950, guid: b93555d5539b6455d89824053ed822f8,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2905223666950656839, guid: b93555d5539b6455d89824053ed822f8,
         type: 3}
       propertyPath: m_Name
       value: GameInitializer
+      objectReference: {fileID: 0}
+    - target: {fileID: 2957034687128872373, guid: b93555d5539b6455d89824053ed822f8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5707989184278590416, guid: b93555d5539b6455d89824053ed822f8,
         type: 3}
@@ -206,10 +248,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6973900554492121354, guid: b93555d5539b6455d89824053ed822f8,
+    - target: {fileID: 6258066615060367872, guid: b93555d5539b6455d89824053ed822f8,
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6973900554492121354, guid: b93555d5539b6455d89824053ed822f8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8346910446905036879, guid: b93555d5539b6455d89824053ed822f8,
         type: 3}

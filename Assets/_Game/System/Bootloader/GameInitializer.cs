@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameInitializer : MonoBehaviour
 {
     [SerializeField] private LoadingScreen _loadingScreen;
+    [SerializeField] private GameObject _mainMenu;
+    [SerializeField] private Button _startButton;
     public static GameInitializer Instance;
     private List<AsyncOperation> _scenesLoading = new List<AsyncOperation>();
     private float _totalSceneProgress, _spawnProgress;
@@ -13,13 +16,18 @@ public class GameInitializer : MonoBehaviour
     {
         Instance = this;
 
-        StartLoading();
+        _startButton.onClick.AddListener(StartLoading);
+    }
+    private void OnDisable()
+    {
+        _startButton.onClick.RemoveAllListeners();
     }
     private void StartLoading()
     {
         _loadingScreen.gameObject.SetActive(true);
+        _mainMenu.gameObject.SetActive(false);
+        _startButton.onClick.RemoveAllListeners();
 
-        SceneManager.UnloadSceneAsync(0);
         _scenesLoading.Add(SceneManager.LoadSceneAsync(1, LoadSceneMode.Additive));
 
         StartCoroutine(GetSceneLoadProgress());
@@ -70,6 +78,8 @@ public class GameInitializer : MonoBehaviour
         }
 
         _loadingScreen.gameObject.SetActive(false);
+        SceneManager.UnloadSceneAsync(0);
+
         yield return null;
     }
 }
