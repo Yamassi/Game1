@@ -591,6 +591,8 @@ GameObject:
   - component: {fileID: 2390247714854337205}
   - component: {fileID: 6149859649580167984}
   - component: {fileID: 5369539552877620055}
+  - component: {fileID: 6198908611619553194}
+  - component: {fileID: 6883888332255112075}
   m_Layer: 0
   m_Name: BigFence
   m_TagString: Untagged
@@ -651,3 +653,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 582dabbd1749f4c31a58727dca4a3ef8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6198908611619553194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8414273249980039715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66284cfa269734844b1303916197577f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 30
+  _currentHealth: 0
+--- !u!54 &6883888332255112075
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8414273249980039715}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

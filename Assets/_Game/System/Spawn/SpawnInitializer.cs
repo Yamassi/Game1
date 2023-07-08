@@ -68,6 +68,7 @@ public class SpawnInitializer : MonoBehaviour
         if (_aliveNPCcount <= 0)
         {
             StartCoroutine(StartNextWaves());
+            EventHolder.WaveStart(_currentWave);
         }
     }
     private IEnumerator StartNextWaves()

@@ -17,4 +17,7 @@ public static class EventHolder
 
     public static Action OnAssetsLoad;
     public static void AssetsLoad() => OnAssetsLoad?.Invoke();
+
+    public static Action<int> OnWaveStart;
+    public static void WaveStart(int waveNumber) => OnWaveStart?.Invoke(waveNumber);
 }
