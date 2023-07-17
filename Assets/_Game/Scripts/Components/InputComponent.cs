@@ -10,7 +10,7 @@ public class InputComponent : MonoBehaviour, IInput
     [SerializeField] private bool _isJump = false;
     private PlayerInput _playerInput;
     private float _jumpTime, _jumpMaxDuration = 0.3f;
-    private float _attackTime = 0f, _attackCooldown = 0.7f;
+    private float _attackTime = 0f, _attackCooldown = 0.8f;
     private bool _isJumpOver = true, _isAttackOver = true;
     private void Awake()
     {

@@ -3,7 +3,27 @@ guid: 70d15eee361e84e67abc3bea058e1714
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Black.001
+    second: {fileID: 2100000, guid: ca56641798e7448bdb9b99494aff1ea7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Blade.001
+    second: {fileID: 2100000, guid: 916a725761c2e439b90e1f7b1fca9d03, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Blade_Edge.001
+    second: {fileID: 2100000, guid: 96165223cfd0745d792d0b586be80e9b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Main.001
+    second: {fileID: 2100000, guid: 784784ee2e2cd4e63b8c6d8062994ba0, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
