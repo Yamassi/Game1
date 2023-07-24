@@ -10002,6 +10002,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fx: {fileID: 3939252097254723719}
+  _takeDamageSound:
+    Guid:
+      Data1: -595590178
+      Data2: 1193495603
+      Data3: 2058185111
+      Data4: 1860146451
+    Path: event:/TakeDamage
 --- !u!95 &4672788684599338586
 Animator:
   serializedVersion: 5

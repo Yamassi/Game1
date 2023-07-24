@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using FMODUnity;
 public class PlayerController : MonoBehaviour, IDamageable
 {
     [SerializeField] private ParticleSystem _fx;
@@ -53,6 +53,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         }
         _animate.TakeDamageAnimate();
         _fx.Play();
+        AudioController.Instance.PlayOneShot(FMODEvents.Instance.PlayerTakeDamage, transform.position);
     }
     public void ReturnToGround()
     {

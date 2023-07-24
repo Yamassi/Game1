@@ -46,11 +46,11 @@ public class NPCController : MonoBehaviour, IDamageable
     private void Chase()
     {
         float distance = Vector3.Distance(transform.position, _target.transform.position);
-        if (distance > 1.2)
+        if (distance > 1.3)
         {
             _navMeshMove.Chase(_target.transform);
         }
-        else if (distance < 1.2)
+        else if (distance < 1.3)
         {
             _navMeshMove.StopMove();
             _navMeshMove.RotateToTarget(_target.transform.position);

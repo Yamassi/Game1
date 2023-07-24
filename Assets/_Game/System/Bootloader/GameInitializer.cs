@@ -18,6 +18,10 @@ public class GameInitializer : MonoBehaviour
 
         _startButton.onClick.AddListener(StartLoading);
     }
+    private void Start()
+    {
+        AudioController.Instance.StartMusic(FMODEvents.Instance.Intro);
+    }
     private void OnDisable()
     {
         _startButton.onClick.RemoveAllListeners();
@@ -79,6 +83,8 @@ public class GameInitializer : MonoBehaviour
 
         _loadingScreen.gameObject.SetActive(false);
         SceneManager.UnloadSceneAsync(0);
+
+        AudioController.Instance.StopMusic();
 
         yield return null;
     }
