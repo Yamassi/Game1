@@ -84,8 +84,6 @@ public class GameInitializer : MonoBehaviour
         _loadingScreen.gameObject.SetActive(false);
         SceneManager.UnloadSceneAsync(0);
 
-        AudioController.Instance.StopMusic();
-
         yield return null;
     }
 }

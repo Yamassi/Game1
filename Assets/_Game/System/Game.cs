@@ -19,6 +19,9 @@ public class Game : MonoBehaviour
         EventHolder.OnPlayerTakeHealth += TakeHealt;
 
         _lifeIndicator.SetMaxLifes(_player.GetComponent<IHealth>().GetMaxHealth());
+
+        AudioController.Instance.StopMusic();
+        AudioController.Instance.StartMusic(FMODEvents.Instance.Music3);
     }
     private void PlayerFall()
     {

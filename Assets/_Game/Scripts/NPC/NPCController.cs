@@ -68,7 +68,6 @@ public class NPCController : MonoBehaviour, IDamageable
     public void TakeDamage(int damage)
     {
         _health.TakeDamage(damage);
-        _fx.Emit(1);
 
         if (_health.GetCurrentHealth() <= 0)
         {
@@ -76,6 +75,9 @@ public class NPCController : MonoBehaviour, IDamageable
         }
         if (!_isDie)
             _animate.TakeDamageAnimate();
+
+        _fx.Emit(1);
+        AudioController.Instance.PlayOneShot(FMODEvents.Instance.NPCTakeDamage, transform.position);
     }
 
     private void Die()

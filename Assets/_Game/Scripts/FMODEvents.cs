@@ -9,6 +9,10 @@ public class FMODEvents : MonoBehaviour
     [field: SerializeField] public EventReference Intro { get; private set; }
     [field: Header("Player Damage SFX")]
     [field: SerializeField] public EventReference PlayerTakeDamage { get; private set; }
+    [field: Header("NPC Damage SFX")]
+    [field: SerializeField] public EventReference NPCTakeDamage { get; private set; }
+    [field: Header("Music3")]
+    [field: SerializeField] public EventReference Music3 { get; private set; }
     public static FMODEvents Instance { get; private set; }
     private void Awake()
     {
