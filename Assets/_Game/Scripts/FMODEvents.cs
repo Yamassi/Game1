@@ -15,6 +15,10 @@ public class FMODEvents : MonoBehaviour
     [field: SerializeField] public EventReference Swish { get; private set; }
     [field: Header("Health Item SFX")]
     [field: SerializeField] public EventReference AddHealth { get; private set; }
+    [field: Header("Wall Hit SFX")]
+    [field: SerializeField] public EventReference WallHit { get; private set; }
+    [field: Header("Footsteps SFX")]
+    [field: SerializeField] public EventReference Footsteps { get; private set; }
     [field: Header("Music3")]
     [field: SerializeField] public EventReference Music3 { get; private set; }
     public static FMODEvents Instance { get; private set; }

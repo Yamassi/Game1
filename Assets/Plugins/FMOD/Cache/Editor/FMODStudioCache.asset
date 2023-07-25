@@ -47,6 +47,60 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-1747410023601745917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/WallHit
+  m_EditorClassIdentifier: 
+  Path: event:/WallHit
+  Guid:
+    Data1: -1495303269
+    Data2: 1308671558
+    Data3: 1513540525
+    Data4: 226293425
+  Banks:
+  - {fileID: 3058444417181794640}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-1380731375396785921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Footsteps
+  m_EditorClassIdentifier: 
+  Path: event:/Footsteps
+  Guid:
+    Data1: -918053145
+    Data2: 1289066651
+    Data3: 2100852109
+    Data4: 89732473
+  Banks:
+  - {fileID: 3058444417181794640}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-1354968319672389761
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,10 +116,10 @@ MonoBehaviour:
   Path: Assets/FMod/Sound/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638259177352400863
+  lastModified: 638259217231322898
   FileSizes:
   - Name: Desktop
-    Value: 1066
+    Value: 1144
   Exists: 1
 --- !u!114 &-188470227896839107
 MonoBehaviour:
@@ -118,12 +172,14 @@ MonoBehaviour:
   - {fileID: 9130664451764882671}
   - {fileID: -3045080751370598301}
   - {fileID: 6996034003543423113}
+  - {fileID: -1747410023601745917}
+  - {fileID: -1380731375396785921}
   EditorParameters: []
   MasterBanks:
   - {fileID: 201174504576300666}
   StringsBanks:
   - {fileID: -1354968319672389761}
-  cacheTime: 638259177353099994
+  cacheTime: 638259227391974641
   cacheVersion: 131605
 --- !u!114 &201174504576300666
 MonoBehaviour:
@@ -140,7 +196,7 @@ MonoBehaviour:
   Path: Assets/FMod/Sound/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638259177352391013
+  lastModified: 638259217231312678
   FileSizes:
   - Name: Desktop
     Value: 1036
@@ -160,10 +216,10 @@ MonoBehaviour:
   Path: Assets/FMod/Sound/Build/Desktop/Sound.bank
   Name: Sound
   StudioPath: bank:/Sound
-  lastModified: 638259177353099994
+  lastModified: 638259227391974641
   FileSizes:
   - Name: Desktop
-    Value: 54880
+    Value: 97632
   Exists: 1
 --- !u!114 &3560943376168464431
 MonoBehaviour:

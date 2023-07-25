@@ -15,6 +15,7 @@ public class FenceComponent : MonoBehaviour, IDamageable
     {
         _health.TakeDamage(5);
         this.transform.DOPunchPosition(_punchPosition, 0.5f);
+        AudioController.Instance.PlayOneShot(FMODEvents.Instance.WallHit, transform.position);
 
         if (_health.GetCurrentHealth() <= 0)
         {

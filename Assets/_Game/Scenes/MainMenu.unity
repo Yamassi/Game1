@@ -247,6 +247,20 @@ MonoBehaviour:
       Data3: -307403373
       Data4: -146066127
     Path: event:/AddHealth
+  <WallHit>k__BackingField:
+    Guid:
+      Data1: -1495303269
+      Data2: 1308671558
+      Data3: 1513540525
+      Data4: 226293425
+    Path: event:/WallHit
+  <Footsteps>k__BackingField:
+    Guid:
+      Data1: -918053145
+      Data2: 1289066651
+      Data3: 2100852109
+      Data4: 89732473
+    Path: event:/Footsteps
   <Music3>k__BackingField:
     Guid:
       Data1: 713947910

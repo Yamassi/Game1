@@ -61,4 +61,9 @@ public class PlayerController : MonoBehaviour, IDamageable
         Vector3 offset = new Vector3(0, 9, 0);
         transform.position = lastGroundedPosition + offset;
     }
+    public void FootstepsFX()
+    {
+        Debug.Log("Footsteps Sound Play");
+        AudioController.Instance.PlayOneShot(FMODEvents.Instance.Footsteps, transform.position);
+    }
 }
