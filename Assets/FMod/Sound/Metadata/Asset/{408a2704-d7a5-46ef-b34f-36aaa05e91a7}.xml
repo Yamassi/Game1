@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="EncodableAsset" id="{408a2704-d7a5-46ef-b34f-36aaa05e91a7}">
+		<property name="assetPath">
+			<value>SoundFX/Swish/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{6a708f44-a748-4fdb-ae50-6283d606d223}</destination>
+		</relationship>
+	</object>
+</objects>

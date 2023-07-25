@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{762abed2-102e-4cbb-9f9f-446f3f97473e}">
+		<property name="assetPath">
+			<value>SoundFX/Swish/swish-13.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.070839002267573697</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{6a708f44-a748-4fdb-ae50-6283d606d223}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{8943567c-379f-47e6-8e7a-e6c0df6c8b5b}">
+		<property name="assetPath">
+			<value>SoundFX/Swish/swish-5.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.12707482993197278</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{6a708f44-a748-4fdb-ae50-6283d606d223}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -233,6 +233,20 @@ MonoBehaviour:
       Data3: -1879322746
       Data4: 243546962
     Path: event:/NPCTakeDamage
+  <Swish>k__BackingField:
+    Guid:
+      Data1: -1348904338
+      Data2: 1116429220
+      Data3: 1901905573
+      Data4: 137535299
+    Path: event:/Swish
+  <AddHealth>k__BackingField:
+    Guid:
+      Data1: -1094429464
+      Data2: 1158848547
+      Data3: -307403373
+      Data4: -146066127
+    Path: event:/AddHealth
   <Music3>k__BackingField:
     Guid:
       Data1: 713947910
@@ -246,7 +260,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2141203640}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1785508952
+--- !u!114 &1785508954
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -255,9 +269,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1785508950}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b0b7800e6ada45a598bc36d9660bc59, type: 3}
+  m_Script: {fileID: 11500000, guid: 221649f16a3534c1cba1fa3c93087e60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 3
 --- !u!1001 &2141203640
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -371,6 +386,16 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5569013051571283561, guid: b93555d5539b6455d89824053ed822f8,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 5569013051571283561, guid: b93555d5539b6455d89824053ed822f8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.97
+      objectReference: {fileID: 0}
     - target: {fileID: 5707989184278590416, guid: b93555d5539b6455d89824053ed822f8,
         type: 3}
       propertyPath: m_RootOrder
@@ -446,6 +471,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6036666798419453649, guid: b93555d5539b6455d89824053ed822f8,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6215157943004800198, guid: b93555d5539b6455d89824053ed822f8,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -466,6 +496,26 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6346771767517245371, guid: b93555d5539b6455d89824053ed822f8,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 6346771767517245371, guid: b93555d5539b6455d89824053ed822f8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 6936831413082778021, guid: b93555d5539b6455d89824053ed822f8,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 6936831413082778021, guid: b93555d5539b6455d89824053ed822f8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.95
+      objectReference: {fileID: 0}
     - target: {fileID: 7597373031145684417, guid: b93555d5539b6455d89824053ed822f8,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -485,6 +535,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8240922372787722936, guid: b93555d5539b6455d89824053ed822f8,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 8240922372787722936, guid: b93555d5539b6455d89824053ed822f8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.36
       objectReference: {fileID: 0}
     - target: {fileID: 8366101158179232552, guid: b93555d5539b6455d89824053ed822f8,
         type: 3}
@@ -525,22 +585,33 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9216716731870376463, guid: b93555d5539b6455d89824053ed822f8,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 9216716731870376463, guid: b93555d5539b6455d89824053ed822f8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.95
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5721601283238566715, guid: b93555d5539b6455d89824053ed822f8, type: 3}
     - {fileID: 6711317682460480014, guid: b93555d5539b6455d89824053ed822f8, type: 3}
     - {fileID: 5970938828759089922, guid: b93555d5539b6455d89824053ed822f8, type: 3}
+    - {fileID: 6036666798419453649, guid: b93555d5539b6455d89824053ed822f8, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4922782568696363078, guid: b93555d5539b6455d89824053ed822f8,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1785508952}
+      addedObject: {fileID: 1785508954}
     - targetCorrespondingSourceObject: {fileID: 2174904128678435869, guid: b93555d5539b6455d89824053ed822f8,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2141203644}
+      addedObject: {fileID: 2141203646}
   m_SourcePrefab: {fileID: 100100000, guid: b93555d5539b6455d89824053ed822f8, type: 3}
 --- !u!1 &2141203641 stripped
 GameObject:
@@ -548,7 +619,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2141203640}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2141203644
+--- !u!114 &2141203646
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -557,6 +628,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2141203641}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b0b7800e6ada45a598bc36d9660bc59, type: 3}
+  m_Script: {fileID: 11500000, guid: 221649f16a3534c1cba1fa3c93087e60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 3

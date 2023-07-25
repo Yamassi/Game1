@@ -29,6 +29,8 @@ public class Health : Item
 
             _fx.gameObject.SetActive(true);
 
+            AudioController.Instance.PlayOneShot(FMODEvents.Instance.AddHealth, transform.position);
+
             Destroy(this.gameObject, 1);
         }
     }

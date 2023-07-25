@@ -11,13 +11,21 @@ public class PlayerAnimateComponent : AnimateComponent, IAnimate
         {
             _animator.SetTrigger("Attack");
             _isFirstAttack = false;
+            StartCoroutine(AttackSoundFX());
         }
         else if (isAttack && !_isFirstAttack)
         {
             _animator.SetTrigger("Attack2");
             _isFirstAttack = true;
+            StartCoroutine(AttackSoundFX());
         }
     }
+    private IEnumerator AttackSoundFX()
+    {
+        yield return new WaitForSeconds(0.2f);
+        AudioController.Instance.PlayOneShot(FMODEvents.Instance.Swish, transform.position);
+    }
+
     public override void DieAnimate()
     {
         _animator.SetTrigger("Die");

@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{e81beb7e-2a2c-475f-a032-c3c45514d74f}">
 		<property name="assetPath">
-			<value>SoundFX/hit 1 fast attack.wav</value>
+			<value>SoundFX/Hit/hit 1 fast attack.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>44.0999985</value>
