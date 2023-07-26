@@ -240,6 +240,13 @@ MonoBehaviour:
       Data3: 1901905573
       Data4: 137535299
     Path: event:/Swish
+  <FallHit>k__BackingField:
+    Guid:
+      Data1: 202959792
+      Data2: 1268217352
+      Data3: 908333480
+      Data4: -1069218416
+    Path: event:/FallHit
   <AddHealth>k__BackingField:
     Guid:
       Data1: -1094429464

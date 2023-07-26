@@ -116,11 +116,38 @@ MonoBehaviour:
   Path: Assets/FMod/Sound/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638259217231322898
+  lastModified: 638260106533982381
   FileSizes:
   - Name: Desktop
-    Value: 1144
+    Value: 1240
   Exists: 1
+--- !u!114 &-853479511339814126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/FallHit
+  m_EditorClassIdentifier: 
+  Path: event:/FallHit
+  Guid:
+    Data1: 202959792
+    Data2: 1268217352
+    Data3: 908333480
+    Data4: -1069218416
+  Banks:
+  - {fileID: 3058444417181794640}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-188470227896839107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,12 +201,14 @@ MonoBehaviour:
   - {fileID: 6996034003543423113}
   - {fileID: -1747410023601745917}
   - {fileID: -1380731375396785921}
+  - {fileID: -853479511339814126}
+  - {fileID: 8226065809706820567}
   EditorParameters: []
   MasterBanks:
   - {fileID: 201174504576300666}
   StringsBanks:
   - {fileID: -1354968319672389761}
-  cacheTime: 638259227391974641
+  cacheTime: 638260106535231856
   cacheVersion: 131605
 --- !u!114 &201174504576300666
 MonoBehaviour:
@@ -196,7 +225,7 @@ MonoBehaviour:
   Path: Assets/FMod/Sound/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638259217231312678
+  lastModified: 638260106533973223
   FileSizes:
   - Name: Desktop
     Value: 1036
@@ -216,10 +245,10 @@ MonoBehaviour:
   Path: Assets/FMod/Sound/Build/Desktop/Sound.bank
   Name: Sound
   StudioPath: bank:/Sound
-  lastModified: 638259227391974641
+  lastModified: 638260106535231856
   FileSizes:
   - Name: Desktop
-    Value: 97632
+    Value: 128320
   Exists: 1
 --- !u!114 &3560943376168464431
 MonoBehaviour:
@@ -302,6 +331,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &8226065809706820567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/NPCSound
+  m_EditorClassIdentifier: 
+  Path: event:/NPCSound
+  Guid:
+    Data1: 1379685408
+    Data2: 1080222854
+    Data3: -1111284334
+    Data4: -1225402608
+  Banks:
+  - {fileID: 3058444417181794640}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2100
 --- !u!114 &9130664451764882671
 MonoBehaviour:
   m_ObjectHideFlags: 0
