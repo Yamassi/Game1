@@ -326,9 +326,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c8689827e57d425da40d2d61a5bba35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startColor: {r: 1, g: 1, b: 1, a: 1}
-  _endColor: {r: 1, g: 0.009896709, b: 0, a: 1}
-  _speed: 1
+  _blinkTime: 1.5
 --- !u!1 &3398740660251862576
 GameObject:
   m_ObjectHideFlags: 0
@@ -10751,9 +10749,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c8689827e57d425da40d2d61a5bba35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startColor: {r: 1, g: 1, b: 1, a: 1}
-  _endColor: {r: 1, g: 0.072913244, b: 0, a: 1}
-  _speed: 1
+  _blinkTime: 1.5
 --- !u!1 &8987988111903553866
 GameObject:
   m_ObjectHideFlags: 0
@@ -10804,6 +10800,7 @@ GameObject:
   - component: {fileID: 3384890292991327803}
   - component: {fileID: 8763111454576462497}
   - component: {fileID: 4198432666827443700}
+  - component: {fileID: 5685017064432667494}
   m_Layer: 7
   m_Name: R2H
   m_TagString: Untagged
@@ -10979,3 +10976,19 @@ CapsuleCollider:
   m_Height: 1.3
   m_Direction: 1
   m_Center: {x: 0, y: 0.6, z: -0.09}
+--- !u!208 &5685017064432667494
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9116085285026297115}
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 0.35, y: 0.65, z: 0.35}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.6, z: -0.09}
+  m_TimeToStationary: 0.5

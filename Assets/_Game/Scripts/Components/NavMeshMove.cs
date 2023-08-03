@@ -8,6 +8,7 @@ public class NavMeshMove : MonoBehaviour, INavMeshMove
 {
     [SerializeField] private float _displacementDist = 3f;
     private NavMeshAgent _agent;
+    private NavMeshObstacle _obstacle;
     private float _randomAngle;
     private float _randomAngleCoolDown = 5f;
     private float _randomAngleTimer;
@@ -20,10 +21,14 @@ public class NavMeshMove : MonoBehaviour, INavMeshMove
     private void Awake()
     {
         _agent = GetComponent<NavMeshAgent>();
+        _obstacle = GetComponent<NavMeshObstacle>();
+        _obstacle.enabled = false;
     }
     public void StopMove()
     {
-        _agent.ResetPath();
+        _obstacle.enabled = true;
+        _agent.enabled = false;
+        // _agent.ResetPath();
     }
     public bool GetIsStopped()
     {
@@ -41,6 +46,8 @@ public class NavMeshMove : MonoBehaviour, INavMeshMove
     }
     public void Chase(Transform targetPosition)
     {
+        _obstacle.enabled = false;
+        _agent.enabled = true;
         _isWalk = false;
         if (targetPosition == null)
         {
