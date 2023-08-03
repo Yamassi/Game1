@@ -11,6 +11,8 @@ public class FMODEvents : MonoBehaviour
     [field: SerializeField] public EventReference PlayerTakeDamage { get; private set; }
     [field: Header("NPC Damage SFX")]
     [field: SerializeField] public EventReference NPCTakeDamage { get; private set; }
+    [field: Header("NPC Block SFX")]
+    [field: SerializeField] public EventReference NPCBlock { get; private set; }
     [field: Header("Swish SFX")]
     [field: SerializeField] public EventReference Swish { get; private set; }
     [field: Header("Fall Hit SFX")]

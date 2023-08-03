@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
-public class NPCAnimateComponent : AnimateComponent, IAnimate
+public class NPCAnimateComponent : AnimateComponent, INPCAnimate
 {
     public override void AttackAnimate(bool isAttack)
     {
@@ -20,8 +20,8 @@ public class NPCAnimateComponent : AnimateComponent, IAnimate
     {
         _animator.SetTrigger("GotHit");
     }
-    public override void JumpAnimate(bool isJump)
+    public void BlockAnimate()
     {
-
+        _animator.SetTrigger("BlockHit");
     }
 }

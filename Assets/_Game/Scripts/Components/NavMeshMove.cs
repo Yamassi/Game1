@@ -26,8 +26,8 @@ public class NavMeshMove : MonoBehaviour, INavMeshMove
     }
     public void StopMove()
     {
-        _obstacle.enabled = true;
         _agent.enabled = false;
+        _obstacle.enabled = true;
         // _agent.ResetPath();
     }
     public bool GetIsStopped()

@@ -233,6 +233,13 @@ MonoBehaviour:
       Data3: -1879322746
       Data4: 243546962
     Path: event:/NPCTakeDamage
+  <NPCBlock>k__BackingField:
+    Guid:
+      Data1: -200821057
+      Data2: 1209355956
+      Data3: 231479956
+      Data4: -1574513564
+    Path: event:/BlockHit
   <Swish>k__BackingField:
     Guid:
       Data1: -1348904338

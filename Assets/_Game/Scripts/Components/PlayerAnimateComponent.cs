@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
-public class PlayerAnimateComponent : AnimateComponent, IAnimate
+public class PlayerAnimateComponent : AnimateComponent, IPlayerAnimate
 {
     public override void AttackAnimate(bool isAttack)
     {
@@ -38,7 +38,7 @@ public class PlayerAnimateComponent : AnimateComponent, IAnimate
         // if (!stateInfo.IsName("GotHit"))
         _animator.SetTrigger("GotHit");
     }
-    public override void JumpAnimate(bool isJump)
+    public void JumpAnimate(bool isJump)
     {
         if (isJump && !_isJumpAnimationPlaying)
         {

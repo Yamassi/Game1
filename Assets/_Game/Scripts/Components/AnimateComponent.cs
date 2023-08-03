@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
-public abstract class AnimateComponent : MonoBehaviour, IAnimate
+public abstract class AnimateComponent : MonoBehaviour
 {
     protected Animator _animator;
     protected bool _isJumpAnimationPlaying = false;
@@ -22,7 +22,6 @@ public abstract class AnimateComponent : MonoBehaviour, IAnimate
         _animator.SetFloat("InputMagnitude", inputMagnitude);
     }
     public abstract void AttackAnimate(bool isAttack);
-    public abstract void JumpAnimate(bool isJump);
     public abstract void DieAnimate();
     public abstract void TakeDamageAnimate();
 }

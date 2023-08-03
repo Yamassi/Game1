@@ -23,7 +23,15 @@ public interface IHealth
     int GetMaxHealth();
     int GetCurrentHealth();
 }
-public interface IAnimate
+public interface INPCAnimate
+{
+    void SetMovementDirection(Vector2 movementDirection);
+    void AttackAnimate(bool isAttack);
+    void BlockAnimate();
+    void DieAnimate();
+    void TakeDamageAnimate();
+}
+public interface IPlayerAnimate
 {
     void SetMovementDirection(Vector2 movementDirection);
     void AttackAnimate(bool isAttack);

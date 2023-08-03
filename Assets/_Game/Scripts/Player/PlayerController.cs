@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     private IInput _input;
     private IMove _move;
     private IJump _jump;
-    private IAnimate _animate;
+    private IPlayerAnimate _animate;
     private BlinkFX[] _blinkFXs;
     private GroundChecker _groundChecker;
     private Rigidbody _rigidbody;
@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         _input = GetComponent<IInput>();
         _move = GetComponent<IMove>();
         _jump = GetComponent<IJump>();
-        _animate = GetComponent<IAnimate>();
+        _animate = GetComponent<IPlayerAnimate>();
         _rigidbody = GetComponent<Rigidbody>();
         _groundChecker = GetComponentInChildren<GroundChecker>();
         _blinkFXs = GetComponentsInChildren<BlinkFX>();
