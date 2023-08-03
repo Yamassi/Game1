@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     private IMove _move;
     private IJump _jump;
     private IAnimate _animate;
+    private BlinkFX[] _blinkFXs;
     private GroundChecker _groundChecker;
     private Rigidbody _rigidbody;
     private bool _isDie = false;
@@ -20,6 +21,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         _animate = GetComponent<IAnimate>();
         _rigidbody = GetComponent<Rigidbody>();
         _groundChecker = GetComponentInChildren<GroundChecker>();
+        _blinkFXs = GetComponentsInChildren<BlinkFX>();
     }
     private void Update()
     {
@@ -60,6 +62,11 @@ public class PlayerController : MonoBehaviour, IDamageable
         Vector3 lastGroundedPosition = _groundChecker.GetLastGroundedPosition();
         Vector3 offset = new Vector3(0, 9, 0);
         transform.position = lastGroundedPosition + offset;
+
+        foreach (var blinkFX in _blinkFXs)
+        {
+            blinkFX.InitBlinkFX();
+        }
     }
     public void FootstepsFX()
     {

@@ -9,7 +9,7 @@ public class NPCController : MonoBehaviour, IDamageable
     private CapsuleCollider _capsule;
     private PlayerController _target;
     private INavMeshMove _navMeshMove;
-    private BlinkFX[] _blinkFX;
+    private BlinkFX[] _blinkFXs;
     private IHealth _health;
     private IAnimate _animate;
     private ISensor _sensor;
@@ -25,7 +25,7 @@ public class NPCController : MonoBehaviour, IDamageable
         _navMeshMove = GetComponent<INavMeshMove>();
         _weapon = GetComponent<WeaponComponent>();
         _capsule = GetComponent<CapsuleCollider>();
-        _blinkFX = GetComponentsInChildren<BlinkFX>();
+        _blinkFXs = GetComponentsInChildren<BlinkFX>();
     }
     private void Update()
     {
@@ -89,7 +89,7 @@ public class NPCController : MonoBehaviour, IDamageable
         _eyeLight.gameObject.SetActive(false);
         _weapon.EndAttack();
         _navMeshMove.StopMove();
-        // _gfx.SetParent(null);
+        _gfx.SetParent(null);
 
         Reward reward = GetComponent<Reward>();
         if (reward != null)
@@ -99,14 +99,15 @@ public class NPCController : MonoBehaviour, IDamageable
 
         EventHolder.NPCDie();
 
-        if (_blinkFX != null)
+        if (_blinkFXs != null)
         {
-            foreach (var blinkFX in _blinkFX)
+            foreach (var blinkFX in _blinkFXs)
             {
                 blinkFX.InitBlinkFX();
             }
         }
 
+        Destroy(_gfx.gameObject, 1.3f);
         Destroy(this.gameObject, 1.3f);
     }
 }
