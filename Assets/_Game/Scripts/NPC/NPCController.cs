@@ -1,6 +1,5 @@
+using System.Collections.Generic;
 using UnityEngine;
-
-
 public class NPCController : MonoBehaviour, IDamageable
 {
     [SerializeField] private float _attackCoolDownTime, _attackDelay;
@@ -10,6 +9,7 @@ public class NPCController : MonoBehaviour, IDamageable
     private CapsuleCollider _capsule;
     private PlayerController _target;
     private INavMeshMove _navMeshMove;
+    private BlinkFX[] _blinkFX;
     private IHealth _health;
     private IAnimate _animate;
     private ISensor _sensor;
@@ -25,6 +25,7 @@ public class NPCController : MonoBehaviour, IDamageable
         _navMeshMove = GetComponent<INavMeshMove>();
         _weapon = GetComponent<WeaponComponent>();
         _capsule = GetComponent<CapsuleCollider>();
+        _blinkFX = GetComponentsInChildren<BlinkFX>();
     }
     private void Update()
     {
@@ -87,8 +88,8 @@ public class NPCController : MonoBehaviour, IDamageable
         _capsule.enabled = false;
         _eyeLight.gameObject.SetActive(false);
         _weapon.EndAttack();
-
-        _gfx.SetParent(null);
+        _navMeshMove.StopMove();
+        // _gfx.SetParent(null);
 
         Reward reward = GetComponent<Reward>();
         if (reward != null)
@@ -98,6 +99,14 @@ public class NPCController : MonoBehaviour, IDamageable
 
         EventHolder.NPCDie();
 
-        Destroy(this.gameObject, 0.5f);
+        if (_blinkFX != null)
+        {
+            foreach (var blinkFX in _blinkFX)
+            {
+                blinkFX.InitBlinkFX();
+            }
+        }
+
+        Destroy(this.gameObject, 1.3f);
     }
 }

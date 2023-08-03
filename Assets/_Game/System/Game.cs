@@ -20,8 +20,11 @@ public class Game : MonoBehaviour
 
         _lifeIndicator.SetMaxLifes(_player.GetComponent<IHealth>().GetMaxHealth());
 
-        AudioController.Instance.StopMusic();
-        AudioController.Instance.StartMusic(FMODEvents.Instance.Music3);
+        if (AudioController.Instance != null)
+        {
+            AudioController.Instance.StopMusic();
+            AudioController.Instance.StartMusic(FMODEvents.Instance.Music3);
+        }
     }
     private void PlayerFall()
     {

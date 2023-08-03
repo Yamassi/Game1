@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4336261739860877578}
   - component: {fileID: 1233386767158656560}
+  - component: {fileID: 6080145890936336326}
   m_Layer: 7
   m_Name: Cube.000
   m_TagString: Untagged
@@ -98,6 +99,21 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.000005339971, y: 0.004386354, z: 0.0015674599}
     m_Extent: {x: 0.006526923, y: 0.003746392, z: 0.0032233957}
   m_DirtyAABB: 0
+--- !u!114 &6080145890936336326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 681587868022864068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c8689827e57d425da40d2d61a5bba35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _startColor: {r: 1, g: 1, b: 1, a: 1}
+  _endColor: {r: 1, g: 0, b: 0, a: 1}
+  _speed: 1
 --- !u!1 &1994824827618478959
 GameObject:
   m_ObjectHideFlags: 0
@@ -5895,6 +5911,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9080057873617902375}
   - component: {fileID: 8232798154804545075}
+  - component: {fileID: 95996779690313831}
   m_Layer: 7
   m_Name: Sphere.001
   m_TagString: Untagged
@@ -5985,6 +6002,21 @@ SkinnedMeshRenderer:
     m_Center: {x: 4.656613e-10, y: 0.0055794544, z: 0.00006269221}
     m_Extent: {x: 0.002332577, y: 0.0032679983, z: 0.0024675783}
   m_DirtyAABB: 0
+--- !u!114 &95996779690313831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7858769459985017728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c8689827e57d425da40d2d61a5bba35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _startColor: {r: 1, g: 1, b: 1, a: 1}
+  _endColor: {r: 1, g: 0, b: 0, a: 1}
+  _speed: 1
 --- !u!1 &7865601182804510867
 GameObject:
   m_ObjectHideFlags: 0
