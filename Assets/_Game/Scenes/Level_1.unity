@@ -2313,6 +2313,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1144321640}
+  - component: {fileID: 1144321641}
   m_Layer: 0
   m_Name: NPCs
   m_TagString: Untagged
@@ -2335,6 +2336,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1144321641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1144321639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bc9c7d50d8784f1db246cbfc9b85f0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _nPCs: []
 --- !u!1 &1175241767
 GameObject:
   m_ObjectHideFlags: 0
@@ -2442,6 +2456,7 @@ MonoBehaviour:
   - {fileID: 1680700343}
   - {fileID: 2136193768}
   - {fileID: 1396447210}
+  _nPCTactic: {fileID: 1144321641}
   _NPCParent: {fileID: 1144321640}
   Progress: 0
   IsDone: 0
@@ -15493,6 +15508,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _attackCoolDownTime: 2
   _attackDelay: 0.7
+  _blockCoolDownTime: 0
   _fx: {fileID: 7497442436101729207}
   _fx2: {fileID: 1592655423}
   _gfx: {fileID: 1692504226779804242}

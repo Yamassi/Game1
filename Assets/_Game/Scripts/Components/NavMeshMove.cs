@@ -61,6 +61,18 @@ public class NavMeshMove : MonoBehaviour, INavMeshMove
         var rotation = Quaternion.LookRotation(targetPos - transform.position);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 2);
     }
+    public void JumpBack(Transform chaserPosition)
+    {
+        _isWalk = false;
+        if (chaserPosition == null)
+        {
+            return;
+        }
+        Vector3 dirToTarget = transform.position - chaserPosition.position;
+        Vector3 newPos = transform.position + dirToTarget;
+
+        MoveToPosition(newPos);
+    }
     public void RunAway(Transform chaserPosition)
     {
         _isWalk = false;

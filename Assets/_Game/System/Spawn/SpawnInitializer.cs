@@ -7,6 +7,7 @@ public class SpawnInitializer : MonoBehaviour
 {
     [SerializeField] private GenericFactory[] _factories;
     [SerializeField] private SpawnWave[] _spawnWaves;
+    [SerializeField] private NPCTacticController _nPCTactic;
     [SerializeField] private Transform _NPCParent;
     public static SpawnInitializer Instance;
     public float Progress;
@@ -62,8 +63,11 @@ public class SpawnInitializer : MonoBehaviour
             _factories[i].InitFactory(_NPCParent);
         }
     }
-    private void NPCDie()
+    private void NPCDie(NPCController nPC)
     {
+        _nPCTactic.RemoveNPC(nPC);
+        _nPCTactic.SendNPCToAttack();
+
         _aliveNPCcount--;
         if (_aliveNPCcount <= 0)
         {
@@ -80,6 +84,9 @@ public class SpawnInitializer : MonoBehaviour
     {
         if (_currentWave < _spawnWaves.Length)
         {
+            int randomNumber = UnityEngine.Random.Range(1, 4);
+            _nPCTactic.SetCountNPCsAttackAtOnce(randomNumber);
+
             foreach (var spawnPoint in _spawnWaves[_currentWave].SpawnPoints)
             {
                 GameObject npc = spawnPoint.Factory.CreateUnit(spawnPoint.transform);
@@ -88,6 +95,7 @@ public class SpawnInitializer : MonoBehaviour
                     Reward reward = npc.GetComponent<Reward>();
                     reward.SetItem(spawnPoint.Item);
                 }
+                _nPCTactic.AddNPC(npc.GetComponent<NPCController>());
                 _aliveNPCcount++;
 
                 yield return new WaitForEndOfFrame();
@@ -100,5 +108,7 @@ public class SpawnInitializer : MonoBehaviour
         }
         yield return new WaitForSeconds(0.5f);
         IsDone = true;
+
+        _nPCTactic.Init();
     }
 }

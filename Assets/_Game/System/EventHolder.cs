@@ -7,8 +7,8 @@ public static class EventHolder
     public static Action OnPlayerDie;
     public static void PlayerDie() => OnPlayerDie?.Invoke();
 
-    public static Action OnNPCDie;
-    public static void NPCDie() => OnNPCDie?.Invoke();
+    public static Action<NPCController> OnNPCDie;
+    public static void NPCDie(NPCController nPC) => OnNPCDie?.Invoke(nPC);
 
     public static Action<int> OnPlayerTakeDamage;
     public static void PlayerTakeDamage(int damage) => OnPlayerTakeDamage?.Invoke(damage);

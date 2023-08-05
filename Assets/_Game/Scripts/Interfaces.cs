@@ -53,6 +53,7 @@ public interface INavMeshMove
     void RunToggle(bool isRun);
     void StopMove();
     void RotateToTarget(Vector3 target);
+    void JumpBack(Transform chaserPosition);
 }
 public interface IDamageable
 {

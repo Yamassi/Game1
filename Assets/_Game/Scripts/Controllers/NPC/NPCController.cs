@@ -16,7 +16,8 @@ public class NPCController : MonoBehaviour, IDamageable
     private WeaponComponent _weapon;
     private Vector2 _targetLastPosition;
     private bool _isDie = false;
-    private float _blockTimer = 0;
+    private float _blockTimer = 0, _waitDistance;
+    [field: SerializeField] public NPCBehaviour Behaviour { get; private set; } = 0;
     private void Awake()
     {
         _health = GetComponent<IHealth>();
@@ -26,6 +27,7 @@ public class NPCController : MonoBehaviour, IDamageable
         _weapon = GetComponent<WeaponComponent>();
         _capsule = GetComponent<CapsuleCollider>();
         _blinkFXs = GetComponentsInChildren<BlinkFX>();
+        _waitDistance = Random.Range(1.5f, 3.1f);
     }
     private void Update()
     {
@@ -39,11 +41,55 @@ public class NPCController : MonoBehaviour, IDamageable
         _target = _sensor.GetChaser();
         if (_target != null)
         {
-            Chase();
+            if (Behaviour == NPCBehaviour.Wait)
+                Wait();
+
+            if (Behaviour == NPCBehaviour.Attack)
+                Chase();
         }
         else
         {
             _attackDelay = 0.6f;
+        }
+    }
+    private void RunAway()
+    {
+        float distance = Vector3.Distance(transform.position, _target.transform.position);
+
+        _navMeshMove.RotateToTarget(_target.transform.position);
+
+        if (distance <= 2)
+        {
+            _navMeshMove.JumpBack(_target.transform);
+        }
+        else if (distance > 4)
+        {
+            Behaviour = NPCBehaviour.Wait;
+        }
+    }
+
+    private void Wait()
+    {
+        float distance = Vector3.Distance(transform.position, _target.transform.position);
+        if (distance > _waitDistance)
+        {
+            _navMeshMove.Chase(_target.transform);
+        }
+        else if (distance <= _waitDistance)
+        {
+            _navMeshMove.StopMove();
+            _navMeshMove.RotateToTarget(_target.transform.position);
+
+            _attackDelay -= Time.deltaTime;
+
+            if (distance <= 1.2)
+            {
+                if (_attackDelay <= 0)
+                {
+                    _animate.AttackAnimate(true);
+                    _attackDelay = _attackCoolDownTime;
+                }
+            }
         }
     }
     private void Chase()
@@ -65,8 +111,11 @@ public class NPCController : MonoBehaviour, IDamageable
                 _animate.AttackAnimate(true);
                 _attackDelay = _attackCoolDownTime;
             }
-
         }
+    }
+    public void ChangeBehaviour(NPCBehaviour behaviour)
+    {
+        Behaviour = behaviour;
     }
     public void TakeDamage(int damage)
     {
@@ -118,7 +167,7 @@ public class NPCController : MonoBehaviour, IDamageable
 
         _weapon.DisableWeapon();
 
-        EventHolder.NPCDie();
+        EventHolder.NPCDie(this);
 
         if (_blinkFXs != null)
         {
@@ -131,4 +180,10 @@ public class NPCController : MonoBehaviour, IDamageable
         Destroy(_gfx.gameObject, 1.3f);
         Destroy(this.gameObject, 1.3f);
     }
+}
+public enum NPCBehaviour
+{
+    Wait,
+    Attack,
+    RunAway,
 }
