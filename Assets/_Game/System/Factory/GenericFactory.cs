@@ -20,7 +20,9 @@ public abstract class GenericFactory : MonoBehaviour
     }
     public GameObject CreateUnit(Transform spawnPoint)
     {
-        return Instantiate(_prefab, spawnPoint.position, Quaternion.identity, _parent);
+        GameObject unit = Instantiate(_prefab, spawnPoint.position, Quaternion.identity, _parent);
+        unit.name = _prefab.name;
+        return unit;
     }
     public GameObject CreateUnit(Transform spawnPoint, Item item)
     {

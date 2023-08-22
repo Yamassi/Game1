@@ -4,7 +4,7 @@ using TMPro;
 
 public class LifeIndicator : MonoBehaviour
 {
-    [SerializeField] private Slider _slider;
+    [SerializeField] protected Slider _slider;
     [SerializeField] private TextMeshProUGUI _name;
     public void SetName(string name)
     {

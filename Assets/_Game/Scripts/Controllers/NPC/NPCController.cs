@@ -133,6 +133,8 @@ public class NPCController : MonoBehaviour, IDamageable
             case 0:
                 _health.TakeDamage(damage);
 
+                EventHolder.NPCTakeDamage(this);
+
                 if (_health.GetCurrentHealth() <= 0)
                 {
                     Die();

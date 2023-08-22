@@ -349,6 +349,21 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2528019433875416953, guid: b93555d5539b6455d89824053ed822f8,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2528019433875416953, guid: b93555d5539b6455d89824053ed822f8,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2528019433875416953, guid: b93555d5539b6455d89824053ed822f8,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 120
+      objectReference: {fileID: 0}
     - target: {fileID: 2767941654813979914, guid: b93555d5539b6455d89824053ed822f8,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -373,6 +388,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GameInitializer
+      objectReference: {fileID: 0}
+    - target: {fileID: 3590681933017155717, guid: b93555d5539b6455d89824053ed822f8,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.23
       objectReference: {fileID: 0}
     - target: {fileID: 4011364490696603288, guid: b93555d5539b6455d89824053ed822f8,
         type: 3}
