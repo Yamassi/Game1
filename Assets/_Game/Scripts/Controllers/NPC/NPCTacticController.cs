@@ -50,7 +50,7 @@ public class NPCTacticController : MonoBehaviour
                 while (randomNumbers.Count < count)
                 {
                     int randomNumber = Random.Range(0, _nPCs.Count);
-                    Debug.Log("Random Number" + randomNumber);
+                    // Debug.Log("Random Number" + randomNumber);
                     if (!randomNumbers.Contains(randomNumber))
                     {
                         randomNumbers.Add(randomNumber);

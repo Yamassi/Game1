@@ -21,4 +21,7 @@ public static class EventHolder
 
     public static Action<int> OnWaveStart;
     public static void WaveStart(int waveNumber) => OnWaveStart?.Invoke(waveNumber);
+
+    public static Action OnAllNPCsDie;
+    public static void AllNPCsDie() => OnAllNPCsDie?.Invoke();
 }

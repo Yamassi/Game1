@@ -52,6 +52,7 @@ public class PlayerController : MonoBehaviour, IDamageable
             _isDie = true;
             _animate.DieAnimate();
             EventHolder.PlayerDie();
+            this.enabled = false;
         }
         _animate.TakeDamageAnimate();
         _fx.Play();
@@ -70,7 +71,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     }
     public void FootstepsFX()
     {
-        Debug.Log("Footsteps Sound Play");
+        // Debug.Log("Footsteps Sound Play");
         AudioController.Instance.PlayOneShot(FMODEvents.Instance.Footsteps, transform.position);
     }
 }

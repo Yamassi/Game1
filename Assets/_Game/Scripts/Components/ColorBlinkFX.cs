@@ -40,7 +40,7 @@ public class ColorBlinkFX : MonoBehaviour
                     renderer.SetColor("_BaseColor", Color.Lerp(baseColor, _endColor, Mathf.PingPong(Time.time * _speed, 1)));
                     renderer.SetColor("_1st_ShadeColor", Color.Lerp(shadeColor1, _endColor, Mathf.PingPong(Time.time * _speed, 1)));
                     renderer.SetColor("_2nd_ShadeColor", Color.Lerp(shadeColor2, _endColor, Mathf.PingPong(Time.time * _speed, 1)));
-                    Debug.Log(renderer.name);
+                    // Debug.Log(renderer.name);
                 }
             }
             else

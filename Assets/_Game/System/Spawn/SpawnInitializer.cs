@@ -27,6 +27,7 @@ public class SpawnInitializer : MonoBehaviour
     {
         EventHolder.OnAssetsLoad -= AssetLoad;
         EventHolder.OnNPCDie -= NPCDie;
+        StopAllCoroutines();
     }
     private void AssetLoad()
     {
@@ -73,6 +74,15 @@ public class SpawnInitializer : MonoBehaviour
         {
             StartCoroutine(StartNextWaves());
             EventHolder.WaveStart(_currentWave);
+        }
+
+        // Debug.Log("NPC Count" + _aliveNPCcount);
+        // Debug.Log("Current Wave" + _currentWave);
+        // Debug.Log("Spawn Length" + _spawnWaves.Length);
+        if (_aliveNPCcount <= 0 && _currentWave == _spawnWaves.Length)
+        {
+            // Debug.Log("Game Over");
+            EventHolder.AllNPCsDie();
         }
     }
     private IEnumerator StartNextWaves()
