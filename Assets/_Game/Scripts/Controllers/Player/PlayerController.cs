@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour, IDamageable
             _isDie = true;
             _animate.DieAnimate();
             EventHolder.PlayerDie();
-            this.enabled = false;
+            Destroy(this);
         }
         _animate.TakeDamageAnimate();
         _fx.Play();

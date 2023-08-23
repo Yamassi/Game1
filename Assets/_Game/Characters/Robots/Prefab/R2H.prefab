@@ -1027,7 +1027,7 @@ ParticleSystem:
         m_RotationOrder: 4
     randomizeRotationDirection: 0
     gravitySource: 0
-    maxNumParticles: 50
+    maxNumParticles: 30
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
@@ -6043,7 +6043,7 @@ ParticleSystem:
         m_RotationOrder: 4
     randomizeRotationDirection: 0
     gravitySource: 0
-    maxNumParticles: 1000
+    maxNumParticles: 50
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
@@ -11004,7 +11004,7 @@ ParticleSystem:
         m_RotationOrder: 4
     randomizeRotationDirection: 0
     gravitySource: 0
-    maxNumParticles: 100
+    maxNumParticles: 30
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
@@ -15801,6 +15801,7 @@ MonoBehaviour:
   _fx2: {fileID: 1105682929429305861}
   _gfx: {fileID: 8521892901366606479}
   _eyeLight: {fileID: 2270144211787061952}
+  <Behaviour>k__BackingField: 0
 --- !u!114 &4962038764617293423
 MonoBehaviour:
   m_ObjectHideFlags: 0
