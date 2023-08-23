@@ -13,7 +13,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: DarkGrey
-    second: {fileID: 2100000, guid: 5bc59dc7ca21449c882c663e3e278d5a, type: 2}
+    second: {fileID: 2100000, guid: 9e50602953f0c4166bce7d5f42279861, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule

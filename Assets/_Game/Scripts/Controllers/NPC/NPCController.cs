@@ -158,7 +158,10 @@ public class NPCController : MonoBehaviour, IDamageable
         _isDie = true;
         _animate.DieAnimate();
         _capsule.enabled = false;
-        _eyeLight.gameObject.SetActive(false);
+
+        if (_eyeLight != null)
+            _eyeLight.gameObject.SetActive(false);
+
         _weapon.EndAttack();
         _navMeshMove.StopMove();
         _gfx.SetParent(null);

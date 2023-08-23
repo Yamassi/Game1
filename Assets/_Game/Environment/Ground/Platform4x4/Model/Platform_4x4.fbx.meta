@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9dfd6af8abb7e47598338ebd07832874
+guid: c052e7e508ef54c6591ab8921aa9361b
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -8,32 +8,32 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Black
-    second: {fileID: 2100000, guid: 8304544a8a4f44f0f871bac92915df84, type: 2}
+    second: {fileID: 2100000, guid: 942beccc5ba7e44fcafce2af2682b1ac, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: DarkGrey
-    second: {fileID: 2100000, guid: 5bc59dc7ca21449c882c663e3e278d5a, type: 2}
+    second: {fileID: 2100000, guid: 9e50602953f0c4166bce7d5f42279861, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Grey
-    second: {fileID: 2100000, guid: 0259127f272594904990c71cf635b3e1, type: 2}
+    second: {fileID: 2100000, guid: 4bd02cd4e8ebb4b9e87f5856223e0a7b, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: LightGrey
-    second: {fileID: 2100000, guid: c2c13811fe44b45ee8a1bcee828a81c6, type: 2}
+    second: {fileID: 2100000, guid: 1b474db17880c496ea5ef52b3e4e8b9e, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Orange
-    second: {fileID: 2100000, guid: 84c3d51a1e7694e2eb262de282239bd3, type: 2}
+    second: {fileID: 2100000, guid: c66b8a8df1c34485bad9909511876f2e, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Texture_Signs
-    second: {fileID: 2100000, guid: 71b43f6a7895d46bdbc3756c76a985b1, type: 2}
+    second: {fileID: 2100000, guid: 4ead68105985a49ca80e31cb3b0c949d, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
