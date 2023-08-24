@@ -42,10 +42,10 @@ MonoBehaviour:
   m_AssetVersion: 2
   m_OpaqueLayerMask:
     serializedVersion: 2
-    m_Bits: 233
+    m_Bits: 4294967295
   m_TransparentLayerMask:
     serializedVersion: 2
-    m_Bits: 233
+    m_Bits: 4294967295
   m_DefaultStencilState:
     overrideStencilState: 0
     stencilReference: 0
@@ -74,7 +74,7 @@ MonoBehaviour:
   m_Active: 1
   settings:
     passTag: Toon
-    Event: 1000
+    Event: 450
     filterSettings:
       RenderQueueType: 0
       LayerMask:
@@ -83,7 +83,8 @@ MonoBehaviour:
       PassNames: []
     overrideMaterial: {fileID: 2100000, guid: d8d7d23afeb4c418699399de35776049, type: 2}
     overrideMaterialPassIndex: 0
-    overrideShader: {fileID: 0}
+    overrideShader: {fileID: -6465566751694194690, guid: f3332ccf11ab24900b159ab8cc893b73,
+      type: 3}
     overrideShaderPassIndex: 0
     overrideMode: 1
     overrideDepthState: 0

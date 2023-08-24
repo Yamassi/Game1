@@ -21,8 +21,7 @@ public class FenceComponent : MonoBehaviour, IDamageable
         {
             blinkFX.InitBlinkFX();
         }
-
-        AudioController.Instance.PlayOneShot(FMODEvents.Instance.WallHit, transform.position);
+        AudioController.Instance?.PlayOneShot(FMODEvents.Instance.WallHit, transform.position);
 
         if (_health.GetCurrentHealth() <= 0)
         {

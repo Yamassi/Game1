@@ -23,7 +23,7 @@ public class PlayerAnimateComponent : AnimateComponent, IPlayerAnimate
     private IEnumerator AttackSoundFX()
     {
         yield return new WaitForSeconds(0.2f);
-        AudioController.Instance.PlayOneShot(FMODEvents.Instance.Swish, transform.position);
+        AudioController.Instance?.PlayOneShot(FMODEvents.Instance.Swish, transform.position);
     }
 
     public override void DieAnimate()

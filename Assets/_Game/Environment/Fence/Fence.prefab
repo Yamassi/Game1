@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 1292849053995073226}
   - component: {fileID: 5391216171901409168}
   - component: {fileID: 1683426073650164410}
-  m_Layer: 0
+  - component: {fileID: 1100867768951615341}
+  m_Layer: 8
   m_Name: Fence
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,6 +85,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1100867768951615341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1117323111261132867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e072064b74c8d45a6bd6d350eab0542a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _endColor: {r: 1, g: 1, b: 1, a: 0}
+  _blinkTime: 0.1
 --- !u!1 &9122951761255590685
 GameObject:
   m_ObjectHideFlags: 0
@@ -114,5 +129,5 @@ Transform:
   m_Children:
   - {fileID: 1292849053995073226}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
