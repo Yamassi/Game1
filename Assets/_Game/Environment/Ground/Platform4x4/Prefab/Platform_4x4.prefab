@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: c052e7e508ef54c6591ab8921aa9361b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c052e7e508ef54c6591ab8921aa9361b,
         type: 3}
@@ -66,7 +66,12 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: c052e7e508ef54c6591ab8921aa9361b,
         type: 3}
       propertyPath: m_Name
-      value: Platform_4x4 Variant
+      value: Platform_4x4
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c052e7e508ef54c6591ab8921aa9361b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
