@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour, IDamageable
 
         foreach (var blinkFX in _blinkFXs)
         {
-            blinkFX.InitBlinkFX();
+            blinkFX.InitBlinkFXForTime();
         }
     }
     public void FootstepsFX()

@@ -10,7 +10,8 @@ public class FallSensor : MonoBehaviour
         {
             EventHolder.PlayerFall();
             Debug.Log("Player Fall");
-            AudioController.Instance.PlayOneShot(FMODEvents.Instance.FallHit, transform.position);
+
+            AudioController.Instance?.PlayOneShot(FMODEvents.Instance.FallHit, transform.position);
         }
     }
 }

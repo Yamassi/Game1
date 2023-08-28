@@ -1,6 +1,8 @@
 using System.Collections;
 using UnityEngine;
 using UniRx;
+using System.Threading.Tasks;
+
 public class BlinkFX : MonoBehaviour
 {
     [SerializeField] private float _blinkTime = 1.5f;
@@ -15,9 +17,49 @@ public class BlinkFX : MonoBehaviour
     {
         _disposable.Clear();
     }
+    public async void InitBlinkFXForTime()
+    {
+        Color color;
+        float blinkTimer = 0;
+
+        foreach (var renderer in _renderer.materials)
+        {
+            renderer.SetFloat("_Surface", 1);
+            renderer.EnableKeyword("_ALPHATEST_ON");
+        }
+
+        Observable.EveryUpdate().Subscribe(_ =>
+        {
+            if (blinkTimer < _blinkTime)
+            {
+                blinkTimer += Time.deltaTime;
+                float colorTransparency = Mathf.Lerp(1, 0, Mathf.PingPong(Time.time * _speed, 1));
+
+                foreach (var renderer in _renderer.materials)
+                {
+                    color = renderer.GetColor("_BaseColor");
+                    color.a = colorTransparency;
+                    renderer.SetColor("_BaseColor", color);
+                }
+            }
+            else
+            {
+                foreach (var renderer in _renderer.materials)
+                {
+                    color = renderer.GetColor("_BaseColor");
+                    color.a = 1;
+                    renderer.SetColor("_BaseColor", color);
+                }
+                // _renderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
+                _disposable.Clear();
+            }
+        }).AddTo(_disposable);
+
+
+    }
     public void InitBlinkFX()
     {
-        _renderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+        // _renderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
         float blinkTimer = 0;
         Color color;
         foreach (var renderer in _renderer.materials)
@@ -45,7 +87,6 @@ public class BlinkFX : MonoBehaviour
             }
             else
             {
-
                 foreach (var renderer in _renderer.materials)
                 {
                     color = renderer.GetColor("_BaseColor");
@@ -53,7 +94,7 @@ public class BlinkFX : MonoBehaviour
                     renderer.SetColor("_BaseColor", color);
                     // Debug.Log("Blink End " + renderer.GetColor("_BaseColor"));
                 }
-                _renderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
+                // _renderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
                 _disposable.Clear();
             }
         }).AddTo(_disposable);
